@@ -1,19 +1,28 @@
 import React from "react";
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 import './Main.css'
 
 export function Main() {
   const navigate = useNavigate()
 
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   const navigatetoaboutme = () => {
     navigate('/about-me')
   }
+
   return (
     <div className='main-container'>
       <div className='section-1'>
         <section className='about-me-container' id='about-me'>
           <div className='image-section-1-container'>
-            <img src="./back.jpg"></img>
+            <img
+              className='image-header'
+              src="./IMG_2830.JPG">
+            </img>
           </div>
           <div className='about-me-text-section-1-container'>
             <div className='header-about-me-text-container'>
@@ -34,6 +43,33 @@ export function Main() {
           </div>
         </section>
       </div>
+
+
+      <div className='section-2-container'>
+        <section className='section-2'>
+          <div className='left-side-section-2-container'>
+            <h1>
+              Experience:
+            </h1>
+          </div>
+          <div className='right-side-section-2-container'>
+            <img src='./coding_image.jpg'></img>
+          </div>
+        </section>
+      </div>
+
+      <div className='section-3-container'>
+        <section className='section-3'>
+          <div>
+            <h1>
+              Skills
+            </h1>
+          </div>
+        </section>
+      </div>
+
+
+
     </div>
   )
 }

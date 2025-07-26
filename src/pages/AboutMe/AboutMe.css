@@ -1,3 +1,60 @@
-.aboutme-container {
-  height: 200px;
+.about-me-container-more-information {
+  display: flex;
+  height: auto;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  width: 100%;
+}
+
+
+.about-me-writing-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 60%;
+  margin-top: 8%;
+}
+
+.about-me-header-more-info {
+  font-size: 4rem;
+}
+
+.about-me-paragraphs {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  width: 60%;
+  margin-top: .8%;
+  font-size: 1.5rem;
+}
+
+.about-me-paragraphs p {
+  margin-bottom: 40px;
+  line-height: 1.6;
+}
+
+.button-navigation-container {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 5rem;
+  margin-bottom: 10rem;
+  border-radius: 20px;
+  border: 1px solid black;
+  padding: 10px 20px 10px 20px;
+  cursor: pointer;
+}
+
+.button-container-nav {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.button-nav-back {
+  cursor: pointer;
+}
+
+.button-navigation-container:hover {
+  background-color: black;
+  color: white
 }
