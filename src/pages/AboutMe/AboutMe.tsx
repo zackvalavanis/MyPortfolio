@@ -1,10 +1,14 @@
 import React from "react";
 import './AboutMe.css'
 import { useNavigate } from "react-router-dom";
+import { useEffect } from "react";
 
 export function AboutMe() {
   const navigate = useNavigate()
 
+  useEffect(() => {
+    window.scroll(0, 0)
+  }, [])
 
   const navigateBack = () => {
     navigate('/')
