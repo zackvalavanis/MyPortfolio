@@ -20,5 +20,23 @@ Welcome to my personal portfolio website! This project is a reflection of who I 
 - **HTML5 & CSS3**
 
 ## 📂 Folder Structure
+├── public/
+│ └── index.html # Main HTML template
+├── src/
+│ ├── components/ # Reusable React components
+│ │ ├── Header.jsx
+│ │ ├── AboutMe.jsx
+│ │ ├── Projects.jsx
+│ │ └── ...other components
+│ ├── styles/ # CSS/Styling files
+│ │ ├── Header.css
+│ │ ├── AboutMe.css
+│ │ └── ...other styles
+│ ├── App.jsx # Root React component
+│ ├── main.jsx # React DOM renderer
+│ └── index.css # Tailwind CSS imports
+├── tailwind.config.js # Tailwind configuration
+├── package.json # Project metadata and dependencies
+└── README.md # You're here!
 
 
