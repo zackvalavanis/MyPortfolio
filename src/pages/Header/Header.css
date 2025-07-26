@@ -1,0 +1,35 @@
+.header-container {
+  width: 100%;
+  height: 100rem;
+  margin: 0 auto;
+  background-size: cover;
+  background-position: center;
+  background: linear-gradient(to right, rgb(230, 230, 230), rgb(204, 204, 204));
+}
+
+.header-name-links-container {
+  display: flex;
+  height: 50rem;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+.header-container-name {
+  font-size: 5rem;
+}
+
+.header-link {
+  font-size: 20px;
+  border: 1px solid black;
+  color: black;
+  border-radius: 50px;
+  padding: 10px 20px 10px 20px;
+  cursor: pointer;
+}
+
+.header-link:hover {
+  border-color: rgb(65, 65, 65);
+  color: rgb(0, 0, 0);
+  background-color: white;
+}
