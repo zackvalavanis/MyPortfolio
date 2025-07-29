@@ -14,6 +14,10 @@ export function Main() {
     navigate('/about-me')
   }
 
+  const navigatetoExperience = () => {
+    navigate('/experience')
+  }
+
   return (
     <div className='main-container'>
       <div className='section-1'>
@@ -48,10 +52,48 @@ export function Main() {
       <div className='section-2-container'>
         <section className='section-2'>
           <div className='left-side-section-2-container'>
-            <h1>
-              Experience:
-            </h1>
+            <div className='header-section-2'>
+              <h1>
+                Experience:
+              </h1>
+            </div>
+
+            {/* First Expereince - NB */}
+            <div className='experience-1-container'>
+              <div className='experience-1-header-container'>
+                <div className='image-container'>
+                  <h1>Image here</h1>
+                </div>
+                <div className='header-info-container'>
+                  <h1>
+                    Neuberger Berman
+                  </h1>
+                  <p><i>Analytics Analyst</i></p>
+                </div>
+              </div>
+              <div className='experience-1-information-container'>
+                <p>
+                  This is a place i worked.
+                </p>
+              </div>
+            </div>
+            {/* Second Experience */}
+
+
+            <button
+              onClick={navigatetoExperience}
+              className='more-info-Button'
+            >More Information
+            </button>
           </div>
+
+
+
+
+
+
+
+
           <div className='right-side-section-2-container'>
             <img src='./coding_image.jpg'></img>
           </div>

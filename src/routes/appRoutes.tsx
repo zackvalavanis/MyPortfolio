@@ -4,6 +4,7 @@ import { Header } from "../pages/Header/Header.tsx";
 import { Footer } from "../pages/Footer/Footer.tsx";
 import { Main } from "../pages/Main/Main.tsx";
 import { AboutMe } from "../pages/AboutMe/AboutMe.tsx";
+import { Experience } from "../pages/Experience/Experience.tsx";
 
 
 const DefaultLayout = () => (
@@ -36,6 +37,10 @@ export const router = createBrowserRouter([
       {
         path: '/about-me',
         element: <AboutMe />
+      },
+      {
+        path: '/experience',
+        element: <Experience />
       }
     ]
   }

@@ -2,6 +2,7 @@ import React from "react";
 import './AboutMe.css'
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
+import { NavBar } from "../Header/Navbar";
 
 export function AboutMe() {
   const navigate = useNavigate()
@@ -16,6 +17,7 @@ export function AboutMe() {
 
   return (
     <div className='about-me-container-more-information'>
+      <NavBar />
       <div className='about-me-writing-container'>
         <h1 className='about-me-header-more-info'>
           About Me:
@@ -42,16 +44,12 @@ export function AboutMe() {
         </p>
 
       </div>
-      <div className='button-navigation-container'>
-        <div className='button-container-nav'>
-          <button
-            className='button-nav-back'
-            onClick={navigateBack}
-          >
-            Navigate Back
-          </button>
-        </div>
-      </div>
+      <button
+        className='button-navigation-container'
+        onClick={navigateBack}
+      >
+        Navigate Back
+      </button>
     </div>
   )
 }
