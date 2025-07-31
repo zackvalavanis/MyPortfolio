@@ -5,7 +5,8 @@
   margin: 0 auto;
   background-size: cover;
   background-position: center;
-  background: linear-gradient(to right, rgb(75, 75, 75), rgb(255, 255, 255));
+  /* background-color: white; */
+  background: linear-gradient(to right, rgb(75, 75, 75), rgb(211, 211, 211));
 }
 
 .left-side-image-header-container {

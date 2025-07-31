@@ -52,7 +52,7 @@ export function Main() {
       <div className='section-2-container'>
         <section className='section-2'>
           <div className='left-side-section-2-container'>
-            <div className='header-section-2'>
+            <div id='experience' className='header-section-2'>
               <h1>
                 Experience:
               </h1>
