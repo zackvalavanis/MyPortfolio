@@ -59,6 +59,7 @@ export function Main() {
             </div>
 
             {/* First Expereince - NB */}
+
             <div className='experience-1-container'>
               <div className='experience-1-header-container'>
                 <div className='image-container'>
@@ -76,6 +77,7 @@ export function Main() {
                   This is a place i worked.
                 </p>
               </div>
+
             </div>
             {/* Second Experience */}
 
@@ -100,7 +102,7 @@ export function Main() {
         </section>
       </div>
 
-      <div className='section-3-container'>
+      <div id='experience' className='section-3-container'>
         <section className='section-3'>
           <div>
             <h1>

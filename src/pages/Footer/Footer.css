@@ -1,0 +1,39 @@
+.footer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.container-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10%;
+  color: white;
+}
+
+.linkedin-logo,
+.github-logo {
+  font-size: 24px;
+  width: 50px;
+  height: 50px;
+  border: 1px solid white;
+  border-radius: 50%;
+  background-color: transparent;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: border 0.2s ease, color 0.2s ease, transform 0.2s ease;
+  box-sizing: border-box;
+  cursor: pointer;
+}
+
+.linkedin-logo:hover,
+.github-logo:hover {
+  color: #0077b5;
+  /* LinkedIn blue */
+  border: 2px solid #0077b5;
+  transform: scale(1.05);
+  /* subtle crisp pop */
+}
