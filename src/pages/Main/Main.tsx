@@ -7,7 +7,6 @@ import AccordionActions from '@mui/material/AccordionActions';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
@@ -76,15 +75,11 @@ export function Main() {
             {/* First Expereince - NB */}
 
             <div className='accordian-container'>
-              <Accordion defaultExpanded>
-                <AccordionSummary
-                  expandIcon={<ExpandMoreIcon />}
-                  aria-controls="panel1-content"
-                  id="panel1-header"
-                >
+              <Accordion expanded={true}>
+                <AccordionSummary sx={{ cursor: 'default' }}>
                   <Box display="flex" flexDirection="row" alignItems="center" gap={1}>
-                    <Typography fontWeight="bold">Salus Wellness</Typography>
-                    <Typography variant="body2" color="text.secondary">– Co-Founder & Full Stack Software Engineer</Typography>
+                    <Typography sx={{ fontSize: 18 }} fontWeight="bold">Salus Wellness</Typography>
+                    <Typography sx={{ fontSize: 16 }} variant="body2" color="text.secondary">– Co-Founder & Full Stack Software Engineer</Typography>
                   </Box>
                 </AccordionSummary>
                 <AccordionDetails>
@@ -111,15 +106,11 @@ export function Main() {
                 </AccordionDetails>
               </Accordion>
 
-              <Accordion defaultExpanded>
-                <AccordionSummary
-                  expandIcon={<ExpandMoreIcon />}
-                  aria-controls="panel2-content"
-                  id="panel2-header"
-                >
+              <Accordion expanded={true}>
+                <AccordionSummary sx={{ cursor: 'default' }}>
                   <Box display="flex" flexDirection="row" alignItems="center" gap={1}>
-                    <Typography fontWeight="bold">Capture</Typography>
-                    <Typography variant="body2" color="text.secondary">– Software Engineering Intern</Typography>
+                    <Typography sx={{ fontSize: 18 }} fontWeight="bold">Capture</Typography>
+                    <Typography sx={{ fontSize: 16 }} variant="body2" color="text.secondary">– Software Engineering Intern</Typography>
                   </Box>
                 </AccordionSummary>
                 <AccordionDetails>
@@ -146,15 +137,11 @@ export function Main() {
                 </AccordionDetails>
               </Accordion>
 
-              <Accordion defaultExpanded>
-                <AccordionSummary
-                  expandIcon={<ExpandMoreIcon />}
-                  aria-controls="panel3-content"
-                  id="panel3-header"
-                >
+              <Accordion expanded={true}>
+                <AccordionSummary sx={{ cursor: 'default' }}>
                   <Box display="flex" flexDirection="row" alignItems="center" gap={1}>
-                    <Typography fontWeight="bold">Neuberger Berman</Typography>
-                    <Typography variant="body2" color="text.secondary">– Client Associate / Data Analyst</Typography>
+                    <Typography sx={{ fontSize: 18 }} fontWeight="bold">Neuberger Berman</Typography>
+                    <Typography sx={{ fontSize: 16 }} variant="body2" color="text.secondary">– Client Associate / Data Analyst</Typography>
                   </Box>
                 </AccordionSummary>
                 <AccordionDetails>

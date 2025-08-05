@@ -39,7 +39,7 @@
 /* text container on the right hand side of the about me page*/
 
 .about-me-text-section-1-container {
-  background-color: white;
+  background-color: #f9fafb;
   display: flex;
   justify-content: center;
   padding-bottom: 5rem;
@@ -101,6 +101,7 @@
 
 .section-2-container {
   display: flex;
+  background-color: #f9fafb;
 
 }
 
@@ -118,15 +119,12 @@
   align-items: center;
   justify-content: center;
   height: 100%;
-  width: 60%;
+  width: 50%;
 }
 
 .header-section-2 {
-  display: flex;
-  flex-direction: column;
   font-size: 30px;
-  justify-content: flex-start;
-  align-items: left;
+  position: relative;
 }
 
 .experience-1-container {
@@ -175,7 +173,10 @@
   border-radius: 8px;
   border: 1px solid #e0e0e0;
   box-shadow: none;
-  width: 100%
+  width: 100%;
+  cursor: default !important;
+  pointer-events: none;
+  /* optional, disables clicks */
 }
 
 /* Summary row spacing */
@@ -195,6 +196,10 @@
 }
 
 .accordian-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 85%;
   padding: 20px;
 }
