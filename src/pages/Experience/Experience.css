@@ -1,0 +1,36 @@
+.experience-container {
+  display: flex;
+  flex-direction: column;
+  height: 100rem;
+  width: 100%;
+  flex: 1;
+}
+
+.download-resume-button-container {
+  display: flex;
+  flex: 1;
+  justify-content: center;
+  align-items: center;
+}
+
+.download-resume-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: black;
+  color: white;
+  border: none;
+  width: 12rem;
+  padding: 10px 20px 10px 20px;
+  font-size: 1rem;
+  border-radius: 20px;
+  text-decoration: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.download-resume-button:hover {
+  background-color: white;
+  color: black;
+  transform: translateY(-3px);
+}

@@ -75,6 +75,7 @@ export function NavBar() {
                 color: 'inherit',
                 textDecoration: 'none',
               }}
+              onClick={() => navigate('/')}
             >
               HOME
             </Typography>
