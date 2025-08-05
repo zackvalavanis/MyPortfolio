@@ -33,7 +33,7 @@
 .github-logo:hover {
   color: #0077b5;
   /* LinkedIn blue */
-  border: 2px solid #0077b5;
+  border: 1px solid #0077b5;
   transform: scale(1.05);
   /* subtle crisp pop */
 }

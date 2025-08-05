@@ -2,6 +2,21 @@ import React from "react";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import './Main.css'
+import Accordion from '@mui/material/Accordion';
+import AccordionActions from '@mui/material/AccordionActions';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import Typography from '@mui/material/Typography';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import Button from '@mui/material/Button';
+import Box from '@mui/material/Box';
+import List from '@mui/material/List';
+import ListItem from '@mui/material/ListItem';
+import ListItemText from '@mui/material/ListItemText';
+import ListItemIcon from '@mui/material/ListItemIcon';
+import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
+
+
 
 export function Main() {
   const navigate = useNavigate()
@@ -60,25 +75,114 @@ export function Main() {
 
             {/* First Expereince - NB */}
 
-            <div className='experience-1-container'>
-              <div className='experience-1-header-container'>
-                <div className='image-container'>
-                  <h1>Image here</h1>
-                </div>
-                <div className='header-info-container'>
-                  <h1>
-                    Neuberger Berman
-                  </h1>
-                  <p><i>Analytics Analyst</i></p>
-                </div>
-              </div>
-              <div className='experience-1-information-container'>
-                <p>
-                  This is a place i worked.
-                </p>
-              </div>
+            <div className='accordian-container'>
+              <Accordion defaultExpanded>
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel1-content"
+                  id="panel1-header"
+                >
+                  <Box display="flex" flexDirection="row" alignItems="center" gap={1}>
+                    <Typography fontWeight="bold">Salus Wellness</Typography>
+                    <Typography variant="body2" color="text.secondary">– Co-Founder & Full Stack Software Engineer</Typography>
+                  </Box>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <List>
+                    <ListItem>
+                      <ListItemIcon sx={{ minWidth: 20 }}>
+                        <FiberManualRecordIcon sx={{ fontSize: 8 }} />
+                      </ListItemIcon>
+                      <ListItemText primary="Built frontend using React and Material UI" />
+                    </ListItem>
+                    <ListItem>
+                      <ListItemIcon sx={{ minWidth: 20 }}>
+                        <FiberManualRecordIcon sx={{ fontSize: 8 }} />
+                      </ListItemIcon>
+                      <ListItemText primary="Integrated backend with Firebase and REST APIs" />
+                    </ListItem>
+                    <ListItem>
+                      <ListItemIcon sx={{ minWidth: 20 }}>
+                        <FiberManualRecordIcon sx={{ fontSize: 8 }} />
+                      </ListItemIcon>
+                      <ListItemText primary="Led a team of 3 developers" />
+                    </ListItem>
+                  </List>
+                </AccordionDetails>
+              </Accordion>
+
+              <Accordion defaultExpanded>
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel2-content"
+                  id="panel2-header"
+                >
+                  <Box display="flex" flexDirection="row" alignItems="center" gap={1}>
+                    <Typography fontWeight="bold">Capture</Typography>
+                    <Typography variant="body2" color="text.secondary">– Software Engineering Intern</Typography>
+                  </Box>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <List>
+                    <ListItem>
+                      <ListItemIcon sx={{ minWidth: 20 }}>
+                        <FiberManualRecordIcon sx={{ fontSize: 8 }} />
+                      </ListItemIcon>
+                      <ListItemText primary="Built frontend using React and Material UI" />
+                    </ListItem>
+                    <ListItem>
+                      <ListItemIcon sx={{ minWidth: 20 }}>
+                        <FiberManualRecordIcon sx={{ fontSize: 8 }} />
+                      </ListItemIcon>
+                      <ListItemText primary="Integrated backend with Firebase and REST APIs" />
+                    </ListItem>
+                    <ListItem>
+                      <ListItemIcon sx={{ minWidth: 20 }}>
+                        <FiberManualRecordIcon sx={{ fontSize: 8 }} />
+                      </ListItemIcon>
+                      <ListItemText primary="Led a team of 3 developers" />
+                    </ListItem>
+                  </List>
+                </AccordionDetails>
+              </Accordion>
+
+              <Accordion defaultExpanded>
+                <AccordionSummary
+                  expandIcon={<ExpandMoreIcon />}
+                  aria-controls="panel3-content"
+                  id="panel3-header"
+                >
+                  <Box display="flex" flexDirection="row" alignItems="center" gap={1}>
+                    <Typography fontWeight="bold">Neuberger Berman</Typography>
+                    <Typography variant="body2" color="text.secondary">– Client Associate / Data Analyst</Typography>
+                  </Box>
+                </AccordionSummary>
+                <AccordionDetails>
+                  <List>
+                    <ListItem>
+                      <ListItemIcon sx={{ minWidth: 20 }}>
+                        <FiberManualRecordIcon sx={{ fontSize: 8 }} />
+                      </ListItemIcon>
+                      <ListItemText primary="Built frontend using React and Material UI" />
+                    </ListItem>
+                    <ListItem>
+                      <ListItemIcon sx={{ minWidth: 20 }}>
+                        <FiberManualRecordIcon sx={{ fontSize: 8 }} />
+                      </ListItemIcon>
+                      <ListItemText primary="Integrated backend with Firebase and REST APIs" />
+                    </ListItem>
+                    <ListItem>
+                      <ListItemIcon sx={{ minWidth: 20 }}>
+                        <FiberManualRecordIcon sx={{ fontSize: 8 }} />
+                      </ListItemIcon>
+                      <ListItemText primary="Led a team of 3 developers" />
+                    </ListItem>
+                  </List>
+                </AccordionDetails>
+              </Accordion>
 
             </div>
+
             {/* Second Experience */}
 
 
@@ -90,17 +194,11 @@ export function Main() {
           </div>
 
 
-
-
-
-
-
-
           <div className='right-side-section-2-container'>
             <img src='./coding_image.jpg'></img>
           </div>
         </section>
-      </div>
+      </div >
 
       <div id='experience' className='section-3-container'>
         <section className='section-3'>
@@ -112,8 +210,6 @@ export function Main() {
         </section>
       </div>
 
-
-
-    </div>
+    </div >
   )
 }

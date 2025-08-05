@@ -101,12 +101,13 @@
 
 .section-2-container {
   display: flex;
+
 }
 
 .section-2 {
   display: flex;
   justify-content: space-around;
-  height: 45rem;
+  height: 60rem;
   width: 100%;
 }
 
@@ -167,6 +168,37 @@
   height: 100%;
   width: 50%;
 }
+
+/* Accordion container spacing */
+.section-2 .MuiAccordion-root {
+  margin-bottom: 16px;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  box-shadow: none;
+  width: 100%
+}
+
+/* Summary row spacing */
+.MuiAccordionSummary-content {
+  align-items: center;
+}
+
+/* Bullet point spacing */
+.MuiListItem-root {
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+/* Dot icon size override if needed */
+.MuiListItemIcon-root {
+  min-width: 16px !important;
+}
+
+.accordian-container {
+  width: 85%;
+  padding: 20px;
+}
+
 
 
 

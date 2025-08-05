@@ -52,9 +52,8 @@ export function NavBar() {
   return (
     <div style={{ background: 'linear-gradient(to right, rgb(75, 75, 75), rgb(211, 211, 211))', display: 'flex', justifyContent: 'center' }}>
       <AppBar position="static" sx={{ backgroundColor: "black", width: '85%', display: 'flex', justifyContent: 'center', borderRadius: '200px' }}>
-        <Container maxWidth="xl">
+        <Container maxWidth={false}>
           <Toolbar disableGutters>
-            <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 2 }} />
             <Typography
               variant="h6"
               noWrap
@@ -70,7 +69,7 @@ export function NavBar() {
                 textDecoration: 'none',
               }}
             >
-              LOGO
+              HOME
             </Typography>
 
             <Box sx={{ flexGrow: 1, display: { xs: 'flex', md: 'none' } }}>
@@ -141,7 +140,7 @@ export function NavBar() {
                 </Button>
               ))}
             </Box>
-            <Box sx={{ flexGrow: 0 }}>
+            {/* <Box sx={{ flexGrow: 0 }}>
               <Tooltip title="Open settings">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
                   <Avatar alt="Remy Sharp" src="/static/images/avatar/2.jpg" />
@@ -169,7 +168,7 @@ export function NavBar() {
                   </MenuItem>
                 ))}
               </Menu>
-            </Box>
+            </Box> */}
           </Toolbar>
         </Container>
       </AppBar>
