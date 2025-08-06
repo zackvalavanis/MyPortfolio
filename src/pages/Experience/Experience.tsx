@@ -2,6 +2,7 @@ import React from "react";
 import './Experience.css'
 import { NavBar } from "../Header/Navbar";
 import { useEffect } from "react";
+import { Footer } from "../Footer/Footer";
 
 
 export function Experience() {
@@ -22,6 +23,7 @@ export function Experience() {
           className='download-resume-button'
         >Download Resume</a>
       </div>
+      <Footer />
     </div>
   )
 }

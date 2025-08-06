@@ -191,9 +191,144 @@ export function Main() {
         <section className='section-3'>
           <div>
             <h1>
-              Skills
+              Technologies I Work With
             </h1>
           </div>
+
+          <div className='technology-info-container'>
+            <div className='container-headers-technologies'>
+              <h1>
+                Langauges
+              </h1>
+              <div className='container-bothsides-languages-container'>
+                <div className='leftSide-languages-container'>
+                  <div className='container-image-description'>
+                    <img className='images-logos' src='https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg'></img>
+                    <p>JavaScript</p>
+                  </div>
+                  <div className='container-image-description'>
+                    <img className='images-logos' src='https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg'></img>
+                    <p>HTML5</p>
+                  </div>
+                  <div className='container-image-description'>
+                    <img className='images-logos' src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ruby/ruby-original.svg" />
+                    <p>Ruby</p>
+                  </div>
+                </div>
+
+                <div className="rightSide-languages-container">
+                  <div>
+                    <img className='images-logos' src='https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg'></img>
+                    <p>TypeScript</p>
+                  </div>
+
+                  <div>
+                    <img className='images-logos' src='https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg'></img>
+                    <p>CSS</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div className='frontend-info-container'>
+              <div className='container-headers-technologies'>
+                <h1>
+                  Frontend
+                </h1>
+                <div className='container-bothsides-languages-container'>
+                  <div className='leftSide-languages-container'>
+                    <div>
+                      <img className='images-logos' src='https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg'></img>
+                      <p>React</p>
+                    </div>
+
+                    <div>
+                      <img className='images-logos' src='https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg'></img>
+                      <p>Bootstrap</p>
+                    </div>
+                  </div>
+
+                  <div className="rightSide-languages-container">
+                    <div>
+                      <img className='images-logos' src='https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg'></img>
+                      <p>Tailwind</p>
+                    </div>
+
+                    <div>
+                      <img className='images-logos' src='https://cdn.jsdelivr.net/gh/devicons/devicon/icons/materialui/materialui-original.svg'></img>
+                      <p>Material UI</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className='backend-info-container'>
+              <div className='container-headers-technologies'>
+                <h1>
+                  Backend
+                </h1>
+                <div className='container-bothsides-languages-container'>
+                  <div className='leftSide-languages-container'>
+                    <div>
+                      <img className='images-logos' src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rails/rails-original-wordmark.svg" />
+                      <p>Rails</p>
+                    </div>
+                  </div>
+
+                  <div className="rightSide-languages-container">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+            <div className='database-info-container'>
+              <div className='container-headers-technologies'>
+                <h1>
+                  Database
+                </h1>
+                <div className='container-bothsides-languages-container'>
+                  <div className='leftSide-languages-container'>
+                    <div>
+                      <img className='images-logos' src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" />
+                      <p>PostgreSQL</p>
+                    </div>
+                  </div>
+                  <div className="rightSide-languages-container">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className='backend-info-container'>
+              <div className='container-headers-technologies'>
+                <h1>
+                  DevOps & Cloud
+                </h1>
+                <div className='container-bothsides-languages-container'>
+                  <div className='leftSide-languages-container'>
+                    <div>
+                      <img className='images-logos' src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" />
+                      <p>Docker</p>
+                    </div>
+                  </div>
+                  <div className="rightSide-languages-container">
+                  </div>
+                </div>
+              </div>
+            </div>
+
+
+
+
+
+
+
+
+          </div>
+
         </section>
       </div>
 

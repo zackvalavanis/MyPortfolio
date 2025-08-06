@@ -7,12 +7,12 @@ export function Footer() {
     <div style={{ backgroundColor: 'black', height: '15rem' }} className="footer-container">
       <div className="container-links">
         <div>
-          <a className="linkedin-logo" href="https://linkedin.com/in/yourname" target="_blank" rel="noopener noreferrer">
+          <a className="linkedin-logo" href="https://www.linkedin.com/in/zack-valavanis/" target="_blank" rel="noopener noreferrer">
             <i className="fab fa-linkedin-in"></i>
           </a>
         </div>
         <div>
-          <a className="github-logo" href="https://github.com/yourname" target="_blank" rel="noopener noreferrer">
+          <a className="github-logo" href="https://github.com/zackvalavanis" target="_blank" rel="noopener noreferrer">
             <i className="fab fa-github"></i>
           </a>
         </div>
