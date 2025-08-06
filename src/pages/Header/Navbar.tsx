@@ -1,131 +1,105 @@
-import React from "react"
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import IconButton from '@mui/material/IconButton';
-import Typography from '@mui/material/Typography';
-import Menu from '@mui/material/Menu';
-import MenuIcon from '@mui/icons-material/Menu';
-import Container from '@mui/material/Container';
-import Avatar from '@mui/material/Avatar';
-import Button from '@mui/material/Button';
-import Tooltip from '@mui/material/Tooltip';
-import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
+import React from "react";
+import AppBar from "@mui/material/AppBar";
+import Box from "@mui/material/Box";
+import Toolbar from "@mui/material/Toolbar";
+import Typography from "@mui/material/Typography";
+import Button from "@mui/material/Button";
+import Container from "@mui/material/Container";
 import { useNavigate } from "react-router-dom";
-import './NavBar.css'
 
-const pages = ['About Me', 'Experience', 'Skills'];
-const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+const pages = ["About Me", "Experience", "Skills"];
 
 export function NavBar() {
-  const [anchorElNav, setAnchorElNav] = React.useState<null | HTMLElement>(null);
-  const [anchorElUser, setAnchorElUser] = React.useState<null | HTMLElement>(null);
-  const navigate = useNavigate()
-
-  const handleOpenNavMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElNav(event.currentTarget);
-  };
-  const handleOpenUserMenu = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorElUser(event.currentTarget);
-  };
-
-  const handleCloseNavMenu = () => {
-    setAnchorElNav(null);
-  };
-
-  const handleCloseUserMenu = () => {
-    setAnchorElUser(null);
-  };
+  const navigate = useNavigate();
 
   const handleNavigation = (page: string) => {
-    const id = page.toLowerCase().replace(/\s+/g, '-'); // matches 'about-me'
+    const id = page.toLowerCase().replace(/\s+/g, "-");
     const el = document.getElementById(id);
-    if (el) {
-      el.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      console.warn(`Element with ID "${id}" not found`);
-    }
-    handleCloseNavMenu();
+    if (el) el.scrollIntoView({ behavior: "smooth" });
   };
 
   return (
-    <div style={{ backgroundColor: '#f9fafb', display: 'flex', justifyContent: 'center' }}>
-      <AppBar position="static" sx={{ height: '8rem', backgroundColor: "black", width: '85%', display: 'flex', justifyContent: 'center', borderRadius: '200px' }}>
-        <Container maxWidth={false}>
+    <div
+      style={{
+        position: "sticky",
+        top: 0,
+        zIndex: 1300,
+        backgroundColor: "transparent",
+        display: "flex",
+        justifyContent: "center",
+        padding: "1rem 0",
+      }}
+    >
+      <div
+        style={{
+          width: "85%",
+          backgroundColor: "black",
+          borderRadius: "200px",
+          display: "flex",
+          alignItems: "center",
+          height: "8rem",
+          padding: "0 2rem",
+          boxShadow: "0 2px 10px rgba(0,0,0,0.7)",
+        }}
+      >
+        <AppBar
+          position="static"
+          color="transparent"
+          elevation={0}
+          sx={{ width: "100%", boxShadow: "none" }}
+        >
           <Toolbar
             disableGutters
             sx={{
-              width: '100%',
-              display: 'flex',
-              justifyContent: 'space-between',
-              alignItems: 'center',
+              width: "100%",
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "center",
+              position: "relative",
             }}
           >
             <Typography
               variant="h6"
-              noWrap
               component="a"
-              href="#app-bar-with-responsive-menu"
+              onClick={() => navigate("/")}
               sx={{
-                ml: 2,
-                fontFamily: 'monospace',
+                position: "absolute",
+                left: "2rem",
+                fontFamily: "monospace",
                 fontWeight: 700,
-                letterSpacing: '.3rem',
-                color: 'inherit',
-                textDecoration: 'none',
+                letterSpacing: ".3rem",
+                color: "white",
+                textDecoration: "none",
+                cursor: "pointer",
               }}
-              onClick={() => navigate('/')}
             >
               HOME
             </Typography>
 
-
             <Box
               sx={{
-                display: { xs: 'none', md: 'flex' },
-                justifyContent: 'center',
-                flexGrow: 1,
-                position: 'absolute',
-                left: 0,
-                right: 0,
-                pointerEvents: 'none',
+                display: { xs: "none", md: "flex" },
+                gap: 4,
               }}
             >
-              <Box
-                sx={{
-                  display: 'flex',
-                  justifyContent: 'center',
-                  gap: 4,
-                  pointerEvents: 'auto',
-                }}
-              >
-                {pages.map((page) => (
-                  <Button
-                    className="buttons-navigation-navbar"
-                    key={page}
-                    onClick={() => {
-                      handleNavigation(page);
-                      handleCloseNavMenu();
-                    }}
-                    sx={{
-                      my: 2,
-                      color: 'white',
-                      display: 'block',
-                      textTransform: 'none',
-                      fontWeight: 800,
-                      fontSize: 16
-                    }}
-                  >
-                    {page}
-                  </Button>
-                ))}
-              </Box>
+              {pages.map((page) => (
+                <Button
+                  key={page}
+                  onClick={() => handleNavigation(page)}
+                  sx={{
+                    color: "white",
+                    textTransform: "none",
+                    fontWeight: 800,
+                    fontSize: 16,
+                  }}
+                >
+                  {page}
+                </Button>
+              ))}
             </Box>
           </Toolbar>
-        </Container>
-      </AppBar>
+        </AppBar>
+      </div>
     </div>
   );
 }
-
