@@ -14,6 +14,7 @@ import ListItem from '@mui/material/ListItem';
 import ListItemText from '@mui/material/ListItemText';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
+import { ContactMe } from "../ContactMe/ContactMe";
 
 
 
@@ -187,10 +188,10 @@ export function Main() {
         </section>
       </div >
 
-      <div id='experience' className='section-3-container'>
-        <section className='section-3'>
-          <div>
-            <h1>
+      <div className='section-3-container'>
+        <section id='skills'>
+          <div className='header-section-3-container'>
+            <h1 className='header-section-3'>
               Technologies I Work With
             </h1>
           </div>
@@ -217,12 +218,12 @@ export function Main() {
                 </div>
 
                 <div className="rightSide-languages-container">
-                  <div>
+                  <div className='container-image-description'>
                     <img className='images-logos' src='https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg'></img>
                     <p>TypeScript</p>
                   </div>
 
-                  <div>
+                  <div className='container-image-description'>
                     <img className='images-logos' src='https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg'></img>
                     <p>CSS</p>
                   </div>
@@ -238,24 +239,29 @@ export function Main() {
                 </h1>
                 <div className='container-bothsides-languages-container'>
                   <div className='leftSide-languages-container'>
-                    <div>
+                    <div className='container-image-description'>
                       <img className='images-logos' src='https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg'></img>
                       <p>React</p>
                     </div>
 
-                    <div>
+                    <div className='container-image-description'>
                       <img className='images-logos' src='https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg'></img>
                       <p>Bootstrap</p>
+                    </div>
+
+                    <div className='container-image-description'>
+                      <img className='images-logos' src='https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' />
+                      <p>React Native</p>
                     </div>
                   </div>
 
                   <div className="rightSide-languages-container">
-                    <div>
+                    <div className='container-image-description'>
                       <img className='images-logos' src='https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg'></img>
                       <p>Tailwind</p>
                     </div>
 
-                    <div>
+                    <div className='container-image-description'>
                       <img className='images-logos' src='https://cdn.jsdelivr.net/gh/devicons/devicon/icons/materialui/materialui-original.svg'></img>
                       <p>Material UI</p>
                     </div>
@@ -271,7 +277,7 @@ export function Main() {
                 </h1>
                 <div className='container-bothsides-languages-container'>
                   <div className='leftSide-languages-container'>
-                    <div>
+                    <div className='container-image-description'>
                       <img className='images-logos' src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rails/rails-original-wordmark.svg" />
                       <p>Rails</p>
                     </div>
@@ -291,7 +297,7 @@ export function Main() {
                 </h1>
                 <div className='container-bothsides-languages-container'>
                   <div className='leftSide-languages-container'>
-                    <div>
+                    <div className='container-image-description'>
                       <img className='images-logos' src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" />
                       <p>PostgreSQL</p>
                     </div>
@@ -309,7 +315,7 @@ export function Main() {
                 </h1>
                 <div className='container-bothsides-languages-container'>
                   <div className='leftSide-languages-container'>
-                    <div>
+                    <div className='container-image-description'>
                       <img className='images-logos' src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" />
                       <p>Docker</p>
                     </div>
@@ -319,19 +325,15 @@ export function Main() {
                 </div>
               </div>
             </div>
-
-
-
-
-
-
-
-
           </div>
-
         </section>
       </div>
 
+      <div className='section-4-container'>
+        <section id='contact-me' className='section-4'>
+          <ContactMe />
+        </section>
+      </div>
     </div >
   )
 }

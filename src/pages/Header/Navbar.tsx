@@ -7,7 +7,7 @@ import Button from "@mui/material/Button";
 import Container from "@mui/material/Container";
 import { useNavigate } from "react-router-dom";
 
-const pages = ["About Me", "Experience", "Skills"];
+const pages = ["About Me", "Experience", "Skills", "Contact Me"];
 
 export function NavBar() {
   const navigate = useNavigate();

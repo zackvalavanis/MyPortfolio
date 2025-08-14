@@ -214,7 +214,7 @@
 
 /* Section 3 */
 
-.section-3 {
+.section-3-container {
   background-color: #f9fafb;
   display: flex;
   flex-direction: column;
@@ -226,10 +226,20 @@
   padding: 4rem 2rem;
 }
 
+.header-section-3-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-section-3 {
+  font-size: 30px;
+}
+
 .technology-info-container {
   display: flex;
   justify-content: center;
-  gap: 15rem;
+  gap: 10rem;
   margin-top: 5%;
   color: black;
   flex-wrap: wrap;
@@ -280,6 +290,22 @@
 .images-logos:hover {
   transform: scale(1.05);
 }
+
+.container-image-description {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.container-image-description p {
+  margin-top: 0.5rem;
+  /* Optional spacing */
+}
+
+/* Section 4 */
+
+
 
 
 

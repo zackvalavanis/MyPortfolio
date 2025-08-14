@@ -1,0 +1,38 @@
+.contact-me-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60rem;
+  background-color: black;
+  color: white;
+}
+
+
+.left-side-contact-container,
+.right-side-contact-container {
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  width: 30%;
+  height: 80%;
+  margin: 5%;
+  background-color: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(8px);
+  transition: background-color 0.4s ease;
+}
+
+.left-side-contact-container:hover {
+  background-color: rgba(255, 255, 255, 0.2);
+}
+
+.header-in-container {
+  text-align: center;
+}
+
+
+
+
+.name-container,
+.email-container {
+  display: flex;
+}
