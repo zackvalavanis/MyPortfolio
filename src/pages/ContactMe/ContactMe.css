@@ -5,7 +5,7 @@
   align-items: flex-start;
   flex-wrap: wrap;
   padding: 40px 20px;
-  background-color: #0a0a0a;
+  background-color: black;
   color: #ffffff;
   min-height: 50rem;
   gap: 20px;
@@ -51,9 +51,9 @@
 .infomation-container {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   gap: 20px;
   width: 100%;
-  align-items: flex-start;
 }
 
 .group-container {
@@ -79,8 +79,18 @@
   font-size: 1rem;
 }
 
+.group-container svg {
+  stroke: currentColor;
+  transition: stroke 0.3s ease;
+}
+
+.group-container:hover {
+  color: #5daec6;
+  /* your blue color */
+}
+
 /* Links styling */
-.infomation-container a {
+.infomation-container {
   text-decoration: none;
   color: inherit;
   cursor: pointer;
@@ -179,6 +189,15 @@
 .submit-button-email:hover {
   background-color: #4a9bb1;
   transform: translateY(-2px);
+}
+
+.pro-summary-container {
+  display: flex;
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
 }
 
 /* Mobile responsiveness */
