@@ -1,38 +1,197 @@
+/* Container for the whole section */
 .contact-me-container {
   display: flex;
   justify-content: center;
-  align-items: center;
-  height: 60rem;
-  background-color: black;
-  color: white;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding: 40px 20px;
+  background-color: #0a0a0a;
+  color: #ffffff;
+  min-height: 50rem;
+  gap: 20px;
+  box-sizing: border-box;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-
+/* Card styles */
 .left-side-contact-container,
 .right-side-contact-container {
   display: flex;
   flex-direction: column;
+  align-items: center;
   border-radius: 20px;
-  width: 30%;
-  height: 80%;
-  margin: 5%;
-  background-color: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(8px);
-  transition: background-color 0.4s ease;
+  width: 45%;
+  height: 630px;
+  padding: 30px 20px;
+  margin: 10px;
+  background-color: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.4s ease, transform 0.3s ease, box-shadow 0.3s ease;
+  box-sizing: border-box;
 }
 
-.left-side-contact-container:hover {
-  background-color: rgba(255, 255, 255, 0.2);
+.left-side-contact-container:hover,
+.right-side-contact-container:hover {
+  background-color: rgba(255, 255, 255, 0.15);
+  transform: translateY(-5px);
+  box-shadow: 0 12px 25px rgba(0, 0, 0, 0.4);
 }
 
+/* Header styling */
 .header-in-container {
   text-align: center;
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 30px;
+  color: #ffffff;
 }
 
-
-
-
-.name-container,
-.email-container {
+/* Left side information styling */
+.infomation-container {
   display: flex;
+  flex-direction: column;
+  gap: 20px;
+  width: 100%;
+  align-items: flex-start;
+}
+
+.group-container {
+  display: flex;
+  justify-content: flex-start;
+  width: 100%;
+  align-items: center;
+  gap: 15px;
+}
+
+.group-container h1 {
+  flex: 0 0 100px;
+  font-size: 1.1rem;
+  font-weight: 500;
+  margin: 0;
+  color: #ffffff;
+}
+
+.group-container p {
+  flex: 1;
+  margin: 0;
+  color: #e0e0e0;
+  font-size: 1rem;
+}
+
+/* Links styling */
+.infomation-container a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+  transition: color 0.2s ease;
+}
+
+.infomation-container a:hover {
+  color: #5daec6;
+}
+
+/* Right container form layout */
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  gap: 20px;
+}
+
+/* Row for multiple fields like First & Last Name */
+.row-fields {
+  display: flex;
+  gap: 20px;
+  width: 100%;
+}
+
+/* Each field inside the row */
+.row-fields .name-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+/* Individual input fields */
+.email-input-container input,
+.email-input-container textarea {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  font-size: 1rem;
+  transition: border 0.3s ease, background-color 0.3s ease;
+}
+
+.email-input-container input:focus,
+.email-input-container textarea:focus {
+  outline: none;
+  border: 1px solid #5daec6;
+  background-color: rgba(255, 255, 255, 0.1);
+}
+
+/* Message field full width at bottom */
+.message-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: 10px;
+}
+
+.message-input-container textarea {
+  width: 100%;
+  min-height: 200px;
+  padding: 10px 12px;
+  border-radius: 8px;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  background-color: rgba(255, 255, 255, 0.05);
+  color: #ffffff;
+  font-size: 1rem;
+  resize: vertical;
+}
+
+/* Form labels */
+.label-container {
+  font-weight: 500;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+}
+
+/* Submit button */
+.submit-button-email {
+  padding: 12px 20px;
+  border-radius: 10px;
+  border: none;
+  background-color: #5daec6;
+  color: white;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+  margin-top: 10px;
+}
+
+.submit-button-email:hover {
+  background-color: #4a9bb1;
+  transform: translateY(-2px);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 900px) {
+
+  .left-side-contact-container,
+  .right-side-contact-container {
+    width: 90%;
+    min-height: auto;
+    padding: 20px;
+  }
+
+  .row-fields {
+    flex-direction: column;
+  }
 }
