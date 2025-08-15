@@ -54,6 +54,17 @@ export function Main() {
                 Hello! My name is Zack Valavanis, and I’m passionate about continuing my journey into computer science and software engineering. I’m originally from the northside suburbs of Chicago, and in my free time, I enjoy playing guitar, going to concerts, traveling, and building side projects that challenge and inspire me.
               </p>
             </div>
+
+            <div className='goals-container'>
+              <h1 className='header-about-me-text-container'>2025 Goals:</h1>
+              <ul className='bullets-about-me-goals'>
+                <li>Enroll in a Post-Baccalaureate Program in CS as the first step toward a Master’s in Computer Science</li>
+                <li>Complete personal software projects</li>
+                <li>Apply for internships or relevant experience in tech</li>
+                <li>Expand knowledge in algorithms and data structures</li>
+              </ul>
+            </div>
+
             <div className='button-about-me-container'>
               <button onClick={navigatetoaboutme} className='button-more-info-about-me'>
                 More Information
@@ -183,7 +194,7 @@ export function Main() {
 
 
           <div className='right-side-section-2-container'>
-            <img src='./coding_image.jpg'></img>
+            <h1>Education & Certifications</h1>
           </div>
         </section>
       </div >

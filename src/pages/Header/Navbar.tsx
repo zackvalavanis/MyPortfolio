@@ -32,7 +32,7 @@ export function NavBar() {
     >
       <div
         style={{
-          width: "85%",
+          width: "95%",
           backgroundColor: "black",
           borderRadius: "200px",
           display: "flex",
