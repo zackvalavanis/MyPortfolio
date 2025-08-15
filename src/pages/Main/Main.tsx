@@ -74,6 +74,66 @@ export function Main() {
         </section>
       </div>
 
+      <div className='section-3-container'>
+        <h1 className='header-section-3'>Technologies I Work With</h1>
+        <section className='skills-container' id='skills'>
+
+          {/* TECH CATEGORIES */}
+          {[
+            {
+              title: 'Languages',
+              techs: [
+                { name: 'JavaScript', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg' },
+                { name: 'TypeScript', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg' },
+                { name: 'HTML5', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg' },
+                { name: 'CSS', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg' },
+                { name: 'Ruby', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ruby/ruby-original.svg' }
+              ]
+            },
+            {
+              title: 'Frontend',
+              techs: [
+                { name: 'React', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
+                { name: 'React Native', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' },
+                { name: 'Bootstrap', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg' },
+                { name: 'Tailwind', img: 'https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg' },
+                { name: 'Material UI', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/materialui/materialui-original.svg' }
+              ]
+            },
+            {
+              title: 'Backend',
+              techs: [
+                { name: 'Rails', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rails/rails-original-wordmark.svg' }
+              ]
+            },
+            {
+              title: 'Database',
+              techs: [
+                { name: 'PostgreSQL', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg' }
+              ]
+            },
+            {
+              title: 'DevOps & Cloud',
+              techs: [
+                { name: 'Docker', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg' }
+              ]
+            }
+          ].map((category) => (
+            <div key={category.title} className='container-headers-technologies'>
+              <h2>{category.title}</h2>
+              <div className='technology-grid'>
+                {category.techs.map((tech) => (
+                  <div key={tech.name} className='container-image-description'>
+                    <img className='images-logos' src={tech.img} alt={tech.name} />
+                    <p>{tech.name}</p>
+                  </div>
+                ))}
+              </div>
+            </div>
+          ))}
+        </section>
+      </div>
+
 
       <div className='section-2-container'>
         <section className='section-2'>
@@ -199,13 +259,16 @@ export function Main() {
         </section>
       </div >
 
-      <div>
+      <div className='education-container'>
         <section>
-          <div>
-            <h1 className='header-right-section-2'>Education & Certifications</h1>
-
+          <div className='left-side-education-container'>
+            <img src='public/coding_image.jpg'></img>
           </div>
-          <div className='accordian-container'>
+          <div className='accordian-containe-right-side'>
+
+            <div>
+              <h1 className='header-right-section-2'>Education & Certifications</h1>
+            </div>
             <Accordion expanded={true}>
               <AccordionSummary sx={{ cursor: 'default' }}>
                 <Box display="flex" flexDirection="row" alignItems="center" gap={1}>
@@ -271,146 +334,7 @@ export function Main() {
         </section>
       </div>
 
-      <div className='section-3-container'>
-        <section id='skills'>
-          <div className='header-section-3-container'>
-            <h1 className='header-section-3'>
-              Technologies I Work With
-            </h1>
-          </div>
 
-          <div className='technology-info-container'>
-            <div className='container-headers-technologies'>
-              <h1>
-                Langauges
-              </h1>
-              <div className='container-bothsides-languages-container'>
-                <div className='leftSide-languages-container'>
-                  <div className='container-image-description'>
-                    <img className='images-logos' src='https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg'></img>
-                    <p>JavaScript</p>
-                  </div>
-                  <div className='container-image-description'>
-                    <img className='images-logos' src='https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg'></img>
-                    <p>HTML5</p>
-                  </div>
-                  <div className='container-image-description'>
-                    <img className='images-logos' src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/ruby/ruby-original.svg" />
-                    <p>Ruby</p>
-                  </div>
-                </div>
-
-                <div className="rightSide-languages-container">
-                  <div className='container-image-description'>
-                    <img className='images-logos' src='https://cdn.jsdelivr.net/gh/devicons/devicon/icons/typescript/typescript-original.svg'></img>
-                    <p>TypeScript</p>
-                  </div>
-
-                  <div className='container-image-description'>
-                    <img className='images-logos' src='https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg'></img>
-                    <p>CSS</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-
-            <div className='frontend-info-container'>
-              <div className='container-headers-technologies'>
-                <h1>
-                  Frontend
-                </h1>
-                <div className='container-bothsides-languages-container'>
-                  <div className='leftSide-languages-container'>
-                    <div className='container-image-description'>
-                      <img className='images-logos' src='https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg'></img>
-                      <p>React</p>
-                    </div>
-
-                    <div className='container-image-description'>
-                      <img className='images-logos' src='https://cdn.jsdelivr.net/gh/devicons/devicon/icons/bootstrap/bootstrap-original.svg'></img>
-                      <p>Bootstrap</p>
-                    </div>
-
-                    <div className='container-image-description'>
-                      <img className='images-logos' src='https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg' />
-                      <p>React Native</p>
-                    </div>
-                  </div>
-
-                  <div className="rightSide-languages-container">
-                    <div className='container-image-description'>
-                      <img className='images-logos' src='https://upload.wikimedia.org/wikipedia/commons/d/d5/Tailwind_CSS_Logo.svg'></img>
-                      <p>Tailwind</p>
-                    </div>
-
-                    <div className='container-image-description'>
-                      <img className='images-logos' src='https://cdn.jsdelivr.net/gh/devicons/devicon/icons/materialui/materialui-original.svg'></img>
-                      <p>Material UI</p>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className='backend-info-container'>
-              <div className='container-headers-technologies'>
-                <h1>
-                  Backend
-                </h1>
-                <div className='container-bothsides-languages-container'>
-                  <div className='leftSide-languages-container'>
-                    <div className='container-image-description'>
-                      <img className='images-logos' src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rails/rails-original-wordmark.svg" />
-                      <p>Rails</p>
-                    </div>
-                  </div>
-
-                  <div className="rightSide-languages-container">
-                  </div>
-                </div>
-              </div>
-            </div>
-
-
-            <div className='database-info-container'>
-              <div className='container-headers-technologies'>
-                <h1>
-                  Database
-                </h1>
-                <div className='container-bothsides-languages-container'>
-                  <div className='leftSide-languages-container'>
-                    <div className='container-image-description'>
-                      <img className='images-logos' src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" />
-                      <p>PostgreSQL</p>
-                    </div>
-                  </div>
-                  <div className="rightSide-languages-container">
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div className='backend-info-container'>
-              <div className='container-headers-technologies'>
-                <h1>
-                  DevOps & Cloud
-                </h1>
-                <div className='container-bothsides-languages-container'>
-                  <div className='leftSide-languages-container'>
-                    <div className='container-image-description'>
-                      <img className='images-logos' src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg" />
-                      <p>Docker</p>
-                    </div>
-                  </div>
-                  <div className="rightSide-languages-container">
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-      </div>
 
       <div className='section-4-container'>
         <section id='contact-me' className='section-4'>

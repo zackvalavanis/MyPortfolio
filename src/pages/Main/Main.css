@@ -1,91 +1,76 @@
+/* ================= MAIN CONTAINER ================= */
 .main-container {
   display: flex;
   flex-direction: column;
+  width: 100%;
 }
 
-
-/* Section 1 */
-
+/* ================= SECTION 1: ABOUT ME ================= */
 .section-1 {
   display: flex;
   justify-content: space-around;
-  height: 79rem;
+  align-items: stretch;
   width: 100%;
   background: linear-gradient(to right, rgb(230, 230, 230), rgb(204, 204, 204));
+  margin-bottom: 2rem;
+  flex-wrap: wrap;
 }
 
 .about-me-container {
   display: flex;
-  align-items: stretch;
   width: 100%;
+  flex-wrap: wrap;
 }
 
-.goals-container {
-  margin-bottom: 5rem;
+.image-section-1-container,
+.about-me-text-section-1-container {
+  flex: 1;
+  max-width: 50%;
 }
 
-/* image container on the left hand side of the about me page */
 .image-section-1-container {
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 100%;
-  width: 50%;
+  background-color: #f9fafb;
 }
 
 .image-header {
   width: 100%;
-  height: 100%;
+  height: auto;
   object-fit: cover;
   display: block;
+  border-radius: 30px;
 }
-
-/* text container on the right hand side of the about me page*/
 
 .about-me-text-section-1-container {
-  background-color: #f9fafb;
   display: flex;
-  justify-content: center;
-  padding-bottom: 5rem;
   flex-direction: column;
-  height: 100%;
-  width: 60%;
+  justify-content: center;
+  background-color: #f9fafb;
+  padding: 2rem 1rem 5rem 1rem;
 }
 
-/* Within the about me page this is the header specifically */
 .header-about-me-text-container {
-  display: flex;
-  align-items: center;
   font-size: 2.3rem;
-  padding-left: 15%;
-  width: 80%;
+  margin-bottom: 1rem;
 }
 
-/* Within the about me page this is the paragraph underneath the header specifically */
-.paragraph-about-me-text-container {
-  font-size: 1.3rem;
-  padding-left: 15%;
-  width: 90%;
-}
-
+.paragraph-about-me-text-container,
 .bullets-about-me-goals {
   font-size: 1.3rem;
-  padding-left: 17%;
-  width: 90%;
-  list-style-type: disc;
+  margin-bottom: 1rem;
 }
 
 .button-about-me-container {
-  padding-top: 20px;
-  padding-left: 15%;
-  font-size: 1.3rem;
+  margin-top: 1rem;
 }
 
 .button-more-info-about-me {
   border: none;
   background-color: black;
   color: white;
-  padding: 10px 20px 10px 20px;
+  padding: 10px 20px;
   border-radius: 20px;
   cursor: pointer;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
@@ -99,66 +84,50 @@
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
 
-
-
-
-
-
-
-
-
-
-/* section 2 */
-
+/* ================= SECTION 2: EXPERIENCE & EDUCATION ================= */
 .section-2-container {
   display: flex;
-  background-color: #f9fafb;
-
-}
-
-.section-2 {
-  display: flex;
-  justify-content: space-around;
-  height: 60rem;
   width: 100%;
+  flex-wrap: wrap;
+  background-color: #f9fafb;
+  padding: 2rem 1rem;
 }
 
-/* left side of section 2 containing the experience writing  */
-.left-side-section-2-container {
+.left-side-section-2-container,
+.right-side-section-2-container {
+  flex: 1;
+  max-width: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  height: 100%;
-  width: 50%;
+  margin-bottom: 1rem;
 }
 
-.header-section-2 {
-  font-size: 30px;
-  text-align: left;
+.header-section-2,
+.header-right-section-2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
 }
 
-.experience-1-container {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 20px;
-}
-
-.experience-1-header-container {
-  display: flex;
-  gap: 5px;
+.right-side-section-2-container img,
+.left-side-education-container img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 20px;
 }
 
 .more-info-Button {
   border: none;
-  padding: 10px 20px 10px 20px;
+  padding: 10px 20px;
   border-radius: 20px;
   background-color: black;
   color: white;
   cursor: pointer;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  margin-top: 1rem;
 }
 
 .more-info-Button:hover {
@@ -168,174 +137,215 @@
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
 
-
-/* the right side of section two containing Education & Certificates*/
-.right-side-section-2-container {
-  background-color: #f9fafb;
-  height: 100%;
-  width: 60%;
-  display: flex;
-}
-
-.right-side-section-2-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-}
-
-.header-right-section-2 {
-  font-size: 30px;
-}
-
-/* Accordion container spacing */
-.section-2 .MuiAccordion-root {
-  margin-bottom: 16px;
-  border-radius: 8px;
-  border: 1px solid #e0e0e0;
-  box-shadow: none;
-  width: 100%;
-  cursor: default !important;
-  pointer-events: none;
-  /* optional, disables clicks */
-}
-
-/* Summary row spacing */
-.MuiAccordionSummary-content {
-  align-items: center;
-}
-
-/* Bullet point spacing */
-.MuiListItem-root {
-  padding-top: 4px;
-  padding-bottom: 4px;
-}
-
-/* Dot icon size override if needed */
-.MuiListItemIcon-root {
-  min-width: 16px !important;
-}
-
-.accordian-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 85%;
-  padding: 20px;
-}
-
-
-
-
-
-
-
-
-
-/* Section 3 */
-
+/* ================= SECTION 3: TECHNOLOGIES ================= */
 .section-3-container {
-  background-color: #f9fafb;
+  background-color: #000;
+  color: #fff;
   display: flex;
-  flex-direction: column;
+  flex-wrap: wrap;
+  /* allows wrapping when row is full */
   justify-content: center;
-  align-items: center;
-  height: 70rem;
+  /* centers items horizontally */
+  gap: 2rem;
+  /* spacing between items */
+  padding: 2rem;
   width: 100%;
-  color: black;
-  padding: 4rem 2rem;
-}
-
-.header-section-3-container {
-  display: flex;
-  align-items: center;
-  justify-content: center;
 }
 
 .header-section-3 {
-  font-size: 30px;
+  font-size: 3rem;
+  margin-bottom: 4rem;
+  text-align: center;
+  width: 100%;
 }
 
-.technology-info-container {
+.skills-container {
   display: flex;
   justify-content: center;
-  gap: 10rem;
-  margin-top: 5%;
-  color: black;
+  gap: 20px
+}
+
+.technology-grid {
+  display: flex;
+  flex-direction: row;
+  /* horizontal row */
   flex-wrap: wrap;
-  /* Better responsiveness */
+  /* wrap when no space */
+  gap: 2rem;
+  /* spacing between tech cards */
+  justify-content: center;
+  width: 100%;
 }
 
 .container-headers-technologies {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
-  color: black;
-}
-
-.container-bothsides-languages-container {
-  display: flex;
-  justify-content: center;
-  gap: 2rem;
-  flex-wrap: wrap;
-}
-
-.leftSide-languages-container,
-.rightSide-languages-container {
-  display: flex;
-  flex-direction: column;
   justify-content: center;
   text-align: center;
-  margin-top: 2rem;
-  gap: 2rem;
-  color: black;
-  font-size: 15px;
+  padding: 1.5rem;
+  border-radius: 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5), 0 0 8px rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 100%;
+  max-width: 400px;
+}
+
+.container-headers-technologies:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.6), 0 0 12px rgba(255, 255, 255, 0.2);
 }
 
 .images-logos {
-  height: 4.5rem;
-  width: 4.5rem;
-  padding: 0.7rem;
-  border-radius: 1rem;
+  width: 4rem;
+  height: 4rem;
+  padding: 0.5rem;
+  border-radius: 0.8rem;
   border: 1px solid rgba(255, 255, 255, 0.2);
-  background: rgba(255, 255, 255, 0.1);
+  background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5), 0 0 10px rgba(255, 255, 255, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
 }
 
 .images-logos:hover {
-  transform: scale(1.05);
+  transform: translateY(-3px);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6), 0 0 12px rgba(255, 255, 255, 0.2);
 }
 
 .container-image-description {
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
+  margin-top: 0.5rem;
+  font-size: 1rem;
   text-align: center;
 }
 
-.container-image-description p {
-  margin-top: 0.5rem;
-  /* Optional spacing */
+/* ================= EDUCATION CONTAINER ================= */
+.education-container section {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+  align-items: flex-start;
+  margin: 2rem 0;
 }
 
-/* Section 4 */
+.left-side-education-container,
+.accordian-containe-right-side {
+  flex: 1;
+  max-width: 50%;
+}
 
+/* ================= RESPONSIVE ================= */
+@media screen and (max-width: 1024px) {
 
+  .section-1,
+  .section-2,
+  .education-container section {
+    flex-direction: column;
+    height: auto;
+  }
 
+  .image-section-1-container,
+  .about-me-text-section-1-container,
+  .left-side-section-2-container,
+  .right-side-section-2-container,
+  .left-side-education-container,
+  .accordian-containe-right-side {
+    width: 100%;
+    max-width: 100%;
+  }
 
+  .header-about-me-text-container,
+  .paragraph-about-me-text-container,
+  .bullets-about-me-goals,
+  .button-about-me-container {
+    text-align: center;
+    padding-left: 0;
+  }
+}
 
+@media screen and (max-width: 768px) {
+  .header-about-me-text-container {
+    font-size: 1.8rem;
+  }
 
+  .paragraph-about-me-text-container,
+  .bullets-about-me-goals {
+    font-size: 1rem;
+  }
 
+  .button-more-info-about-me {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
 
+  .header-section-2,
+  .header-right-section-2 {
+    font-size: 1.5rem;
+  }
 
+  .right-side-section-2-container img,
+  .left-side-education-container img {
+    max-height: 250px;
+  }
 
+  .header-section-3 {
+    font-size: 2rem;
+    margin-bottom: 2rem;
+  }
 
+  .technology-info-container {
+    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+    gap: 1.5rem;
+  }
 
-/* Mobile */
+  .images-logos {
+    width: 3rem;
+    height: 3rem;
+  }
 
-@media screen and (max-width: 768px) {}
+  .container-headers-technologies {
+    padding: 1rem;
+  }
+
+  .container-image-description {
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .header-about-me-text-container {
+    font-size: 1.5rem;
+  }
+
+  .header-section-3 {
+    font-size: 1.5rem;
+  }
+
+  .paragraph-about-me-text-container,
+  .bullets-about-me-goals {
+    font-size: 0.9rem;
+  }
+
+  .images-logos {
+    width: 2.5rem;
+    height: 2.5rem;
+  }
+
+  .technology-info-container {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 1rem;
+  }
+
+  .container-image-description {
+    font-size: 0.8rem;
+  }
+}
