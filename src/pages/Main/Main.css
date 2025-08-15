@@ -154,15 +154,17 @@
 
 .header-section-3 {
   font-size: 3rem;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
   text-align: center;
   width: 100%;
+
 }
 
 .skills-container {
   display: flex;
   justify-content: center;
-  gap: 20px
+  gap: 20px;
+  margin-bottom: 4rem;
 }
 
 .technology-grid {
@@ -171,9 +173,10 @@
   /* horizontal row */
   flex-wrap: wrap;
   /* wrap when no space */
-  gap: 2rem;
+  gap: 1rem;
   /* spacing between tech cards */
   justify-content: center;
+  margin-top: 2rem;
   width: 100%;
 }
 
@@ -192,6 +195,18 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   width: 100%;
   max-width: 400px;
+}
+
+.container-headers-technologies h2 {
+  position: absolute;
+  /* sticks at the top */
+  top: 10px;
+  /* adjust as needed */
+  left: 50%;
+  /* center horizontally */
+  transform: translateX(-50%);
+  margin-bottom: 4rem;
+  font-size: 1.5rem;
 }
 
 .container-headers-technologies:hover {
@@ -223,7 +238,7 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  margin-top: 0.5rem;
+  margin-top: 0.2rem;
   font-size: 1rem;
   text-align: center;
 }
