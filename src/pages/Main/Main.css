@@ -21,7 +21,7 @@
 }
 
 .goals-container {
-  margin-top: 2rem;
+  margin-bottom: 5rem;
 }
 
 /* image container on the left hand side of the about me page */
@@ -135,7 +135,7 @@
 
 .header-section-2 {
   font-size: 30px;
-  position: relative;
+  text-align: left;
 }
 
 .experience-1-container {
@@ -172,10 +172,19 @@
 /* the right side of section two containing Education & Certificates*/
 .right-side-section-2-container {
   background-color: #f9fafb;
-  display: flex;
-  justify-content: center;
   height: 100%;
-  width: 50%;
+  width: 60%;
+  display: flex;
+}
+
+.right-side-section-2-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.header-right-section-2 {
+  font-size: 30px;
 }
 
 /* Accordion container spacing */
