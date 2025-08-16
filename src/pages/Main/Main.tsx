@@ -74,9 +74,11 @@ export function Main() {
         </section>
       </div>
 
-      <div className='section-3-container'>
-        <h1 className='header-section-3'>Technologies I Work With</h1>
-        <section className='skills-container' id='skills'>
+      <div id='skills' className='section-3-container'>
+        <div className='header-container-3'>
+          <h1 className='header-section-3'>Technologies I Work With</h1>
+        </div>
+        <section className='skills-container'>
 
           {/* TECH CATEGORIES */}
           {[
@@ -140,7 +142,7 @@ export function Main() {
           <div className='left-side-section-2-container'>
             <div id='experience' className='header-section-2'>
               <h1>
-                Experience
+                Work Experience
               </h1>
             </div>
 
@@ -262,7 +264,7 @@ export function Main() {
       </div >
 
       <div className='education-container'>
-        <section>
+        <section className='education-section-container'>
           <div className='left-side-education-container'>
             <img src='/Colorado.avif'></img>
           </div>
