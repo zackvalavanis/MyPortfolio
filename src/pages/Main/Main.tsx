@@ -39,12 +39,13 @@ export function Main() {
         <section className='about-me-container'>
           <div className='image-section-1-container'>
             <img
+              id='about-me'
               className='image-header'
               src="./IMG_2830.JPG">
             </img>
           </div>
           <div className='about-me-text-section-1-container'>
-            <div id='about-me' className='goals-container'>
+            <div className='goals-container'>
               <h1 className='header-about-me-text-container'>2025 Goals:</h1>
               <ul className='bullets-about-me-goals'>
                 <li>Enroll in a Post-Baccalaureate Program in CS as the first step toward a Master’s in Computer Science</li>
