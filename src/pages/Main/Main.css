@@ -12,7 +12,6 @@
   align-items: stretch;
   width: 100%;
   background: linear-gradient(to right, rgb(230, 230, 230), rgb(204, 204, 204));
-  margin-bottom: 2rem;
   flex-wrap: wrap;
 }
 
@@ -24,7 +23,6 @@
 
 .image-section-1-container,
 .about-me-text-section-1-container {
-  flex: 1;
   max-width: 50%;
 }
 
@@ -36,11 +34,12 @@
 }
 
 .image-header {
-  width: 100%;
-  height: auto;
+  width: 96%;
+  height: 75%;
   object-fit: cover;
   display: block;
   border-radius: 30px;
+  margin-left: 5px;
 }
 
 .about-me-text-section-1-container {
@@ -48,7 +47,7 @@
   flex-direction: column;
   justify-content: center;
   background-color: #f9fafb;
-  padding: 2rem 1rem 5rem 1rem;
+  padding: 2rem 1rem 3rem 1rem;
 }
 
 .header-about-me-text-container {
@@ -60,6 +59,13 @@
 .bullets-about-me-goals {
   font-size: 1.3rem;
   margin-bottom: 1rem;
+}
+
+.bullets-about-me-goals {
+  font-size: 1.3rem;
+  margin-bottom: 1rem;
+  list-style-type: disc;
+  padding-left: 1.2rem;
 }
 
 .button-about-me-container {
@@ -84,24 +90,44 @@
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
 
-/* ================= SECTION 2: EXPERIENCE & EDUCATION ================= */
+/* ================= SECTION 2: EXPERIENCE ================= */
 .section-2-container {
   display: flex;
   width: 100%;
-  flex-wrap: wrap;
   background-color: #f9fafb;
   padding: 2rem 1rem;
 }
 
-.left-side-section-2-container,
+.section-2 {
+  display: flex;
+}
+
+.left-side-section-2-container {
+  display: flex;
+  width: 50%;
+  flex-direction: column;
+  justify-content: flex-start;
+  text-align: left;
+  margin-left: 2em;
+}
+
 .right-side-section-2-container {
-  flex: 1;
   max-width: 50%;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   margin-bottom: 1rem;
+  margin: 20px;
+}
+
+.right-side-section-2-container img {
+  width: 100%;
+  height: 90%;
+  object-fit: cover;
+  display: block;
+  border-radius: 30px;
+  margin-left: 5px;
 }
 
 .header-section-2,
@@ -110,12 +136,9 @@
   margin-bottom: 1rem;
 }
 
-.right-side-section-2-container img,
-.left-side-education-container img {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  border-radius: 20px;
+.more-info-button-container {
+  display: flex;
+  justify-content: center;
 }
 
 .more-info-Button {
@@ -128,6 +151,7 @@
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   margin-top: 1rem;
+  width: 170px;
 }
 
 .more-info-Button:hover {
@@ -163,7 +187,7 @@
 .skills-container {
   display: flex;
   justify-content: center;
-  gap: 20px;
+  gap: 40px;
   margin-bottom: 4rem;
 }
 
@@ -246,17 +270,39 @@
 /* ================= EDUCATION CONTAINER ================= */
 .education-container section {
   display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
   align-items: flex-start;
-  margin: 2rem 0;
+  gap: 20px;
+  /* optional spacing between left/right */
 }
 
-.left-side-education-container,
-.accordian-containe-right-side {
-  flex: 1;
+/* LEFT SIDE */
+.left-side-education-container {
+  flex: 1 1 50%;
+  /* grow, shrink, basis = 50% */
+  max-width: 50%;
+  /* don’t exceed 50% */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.left-side-education-container img {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  border-radius: 30px;
+  display: block;
+}
+
+/* RIGHT SIDE */
+.accordian-container-right-side {
+  flex: 1 1 50%;
+  /* grow, shrink, basis = 50% */
   max-width: 50%;
 }
+
+
+
 
 /* ================= RESPONSIVE ================= */
 @media screen and (max-width: 1024px) {

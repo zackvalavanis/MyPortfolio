@@ -36,7 +36,7 @@ export function Main() {
   return (
     <div className='main-container'>
       <div className='section-1'>
-        <section className='about-me-container' id='about-me'>
+        <section className='about-me-container'>
           <div className='image-section-1-container'>
             <img
               className='image-header'
@@ -44,7 +44,7 @@ export function Main() {
             </img>
           </div>
           <div className='about-me-text-section-1-container'>
-            <div className='goals-container'>
+            <div id='about-me' className='goals-container'>
               <h1 className='header-about-me-text-container'>2025 Goals:</h1>
               <ul className='bullets-about-me-goals'>
                 <li>Enroll in a Post-Baccalaureate Program in CS as the first step toward a Master’s in Computer Science</li>
@@ -245,11 +245,13 @@ export function Main() {
             {/* Second Experience */}
 
 
-            <button
-              onClick={navigatetoExperience}
-              className='more-info-Button'
-            >More Information
-            </button>
+            <div className='more-info-button-container'>
+              <button
+                onClick={navigatetoExperience}
+                className='more-info-Button'
+              >More Information
+              </button>
+            </div>
           </div>
 
 
@@ -262,7 +264,7 @@ export function Main() {
       <div className='education-container'>
         <section>
           <div className='left-side-education-container'>
-            <img src='public/coding_image.jpg'></img>
+            <img src='/Colorado.avif'></img>
           </div>
           <div className='accordian-containe-right-side'>
 
