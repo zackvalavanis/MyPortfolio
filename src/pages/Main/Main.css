@@ -9,10 +9,9 @@
 .section-1 {
   display: flex;
   justify-content: space-around;
-  align-items: stretch;
   width: 100%;
   background: linear-gradient(to right, rgb(230, 230, 230), rgb(204, 204, 204));
-  flex-wrap: wrap;
+  height: auto;
 }
 
 .about-me-container {

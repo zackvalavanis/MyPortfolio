@@ -259,7 +259,7 @@ export function Main() {
 
 
           <div className='right-side-section-2-container'>
-            <img src='public/coding_image.jpg' />
+            <img src='/coding_image.jpg' />
           </div>
         </section>
       </div >
