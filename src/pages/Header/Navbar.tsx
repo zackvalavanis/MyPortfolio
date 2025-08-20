@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { Toolbar, Typography, Button, Box } from "@mui/material";
+import { Toolbar, Typography, Button, Box, IconButton, Menu, MenuItem, useMediaQuery, useTheme } from "@mui/material";
+import MenuIcon from "@mui/icons-material/Menu";
 import { useNavigate, useLocation } from "react-router-dom";
 
 const pages = ["About Me", "Experience", "Skills", "Contact Me"];
@@ -8,11 +9,15 @@ export function NavBar() {
   const navigate = useNavigate();
   const location = useLocation();
   const [isSticky, setIsSticky] = useState(true);
+  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   const handleNavigation = (page: string) => {
     const id = page.toLowerCase().replace(/\s+/g, "-");
     const el = document.getElementById(id);
     if (el) el.scrollIntoView({ behavior: "smooth" });
+    handleMenuClose();
   };
 
   const handleNavigationFromAboutMePage = (page: string) => {
@@ -22,6 +27,15 @@ export function NavBar() {
       const el = document.getElementById(id);
       if (el) el.scrollIntoView({ behavior: "smooth" });
     }, 100);
+    handleMenuClose();
+  };
+
+  const handleMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
+    setAnchorEl(event.currentTarget);
+  };
+
+  const handleMenuClose = () => {
+    setAnchorEl(null);
   };
 
   useEffect(() => {
@@ -34,16 +48,15 @@ export function NavBar() {
   }, []);
 
   return (
-    <div
-      style={{
+    <Box
+      sx={{
         position: "fixed",
-        top: isSticky ? 0 : "-200px", // adjust based on header height
-        width: "99%",
-        marginTop: '10px',
+        top: isSticky ? 0 : "-200px",
+        width: "100%",
         backgroundColor: "black",
-        borderRadius: "200px",
-        height: "8rem",
-        padding: "0 2rem",
+        borderRadius: 0,
+        height: isMobile ? "6rem" : "8rem",
+        px: isMobile ? 2 : 4,
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
@@ -57,17 +70,15 @@ export function NavBar() {
           width: "100%",
           display: "flex",
           alignItems: "center",
-          justifyContent: "center",
-          position: "relative",
+          justifyContent: "space-between",
         }}
       >
+        {/* HOME Button */}
         <Typography
           variant="h6"
           component="a"
           onClick={() => navigate("/")}
           sx={{
-            position: "absolute",
-            left: "2rem",
             fontFamily: "monospace",
             fontWeight: 700,
             letterSpacing: ".3rem",
@@ -79,25 +90,74 @@ export function NavBar() {
           HOME
         </Typography>
 
-        <Box sx={{ display: { xs: "none", md: "flex" }, gap: 4 }}>
-          {pages.map((page) => (
-            <Button
-              key={page}
-              onClick={() =>
-                location.pathname === "/" ? handleNavigation(page) : handleNavigationFromAboutMePage(page)
-              }
-              sx={{
-                color: "white",
-                textTransform: "none",
-                fontWeight: 800,
-                fontSize: 16,
+        {/* Desktop Menu */}
+        {!isMobile && (
+          <Box sx={{ display: "flex", gap: 4 }}>
+            {pages.map((page) => (
+              <Button
+                key={page}
+                onClick={() =>
+                  location.pathname === "/" ? handleNavigation(page) : handleNavigationFromAboutMePage(page)
+                }
+                sx={{
+                  color: "white",
+                  textTransform: "none",
+                  fontWeight: 800,
+                  fontSize: 16,
+                }}
+              >
+                {page}
+              </Button>
+            ))}
+          </Box>
+        )}
+
+        {/* Mobile Dropdown */}
+        {isMobile && (
+          <>
+            <IconButton
+              onClick={handleMenuOpen}
+              sx={{ color: "white" }}
+            >
+              <MenuIcon />
+            </IconButton>
+
+            <Menu
+              anchorEl={anchorEl}
+              open={Boolean(anchorEl)}
+              onClose={handleMenuClose}
+              anchorOrigin={{
+                vertical: "bottom",
+                horizontal: "right",
+              }}
+              transformOrigin={{
+                vertical: "top",
+                horizontal: "right",
+              }}
+              slotProps={{
+                paper: {
+                  sx: {
+                    ml: 3,
+                    mt: 4, // offset below the icon
+                    zIndex: 5000, // above navbar
+                  },
+                },
               }}
             >
-              {page}
-            </Button>
-          ))}
-        </Box>
+              {pages.map((page) => (
+                <MenuItem
+                  key={page}
+                  onClick={() =>
+                    location.pathname === "/" ? handleNavigation(page) : handleNavigationFromAboutMePage(page)
+                  }
+                >
+                  {page}
+                </MenuItem>
+              ))}
+            </Menu>
+          </>
+        )}
       </Toolbar>
-    </div>
+    </Box>
   );
 }
