@@ -1,13 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import { useEffect } from "react";
-import './Main.css'
+import './Main.css';
 import Accordion from '@mui/material/Accordion';
-import AccordionActions from '@mui/material/AccordionActions';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
-import Button from '@mui/material/Button';
 import Box from '@mui/material/Box';
 import List from '@mui/material/List';
 import ListItem from '@mui/material/ListItem';
@@ -16,33 +13,64 @@ import ListItemIcon from '@mui/material/ListItemIcon';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import { ContactMe } from "../ContactMe/ContactMe";
 
-
-
 export function Main() {
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   useEffect(() => {
-    window.scrollTo(0, 0)
-  }, [])
+    window.scrollTo(0, 0);
+  }, []);
 
-  const navigatetoaboutme = () => {
-    navigate('/about-me')
-  }
+  const navigatetoaboutme = () => navigate('/about-me');
+  const navigatetoExperience = () => navigate('/experience');
 
-  const navigatetoExperience = () => {
-    navigate('/experience')
-  }
+  const renderAccordion = (title: string, subtitle: string, items: string[]) => (
+    <Accordion
+      defaultExpanded
+      sx={{
+        borderRadius: 2,
+        mb: 2,
+        boxShadow: '0 4px 10px rgba(0,0,0,0.1)',
+        '&:before': { display: 'none' },
+      }}
+    >
+      <AccordionSummary
+        sx={{
+          cursor: 'pointer',
+          backgroundColor: 'black',
+          color: 'white',
+          borderRadius: 2,
+          '&:hover': { backgroundColor: 'white', color: 'black' },
+          px: 2,
+          py: 1,
+        }}
+      >
+        <Box display="flex" flexDirection="column">
+          <Typography sx={{ fontSize: 18, fontWeight: 'bold' }}>{title}</Typography>
+          <Typography sx={{ fontSize: 14, fontWeight: 400 }}>{subtitle}</Typography>
+        </Box>
+      </AccordionSummary>
+      <AccordionDetails sx={{ px: 2, py: 1 }}>
+        <List sx={{ ml: 2 }}>
+          {items.map((item, idx) => (
+            <ListItem key={idx} sx={{ py: 0.5 }}>
+              <ListItemIcon sx={{ minWidth: 20 }}>
+                <FiberManualRecordIcon sx={{ fontSize: 8 }} />
+              </ListItemIcon>
+              <ListItemText primary={item} />
+            </ListItem>
+          ))}
+        </List>
+      </AccordionDetails>
+    </Accordion>
+  );
 
   return (
     <div className='main-container'>
+      {/* About Me Section */}
       <div className='section-1'>
         <section className='about-me-container'>
           <div className='image-section-1-container'>
-            <img
-              id='about-me'
-              className='image-header'
-              src="./IMG_2830.JPG">
-            </img>
+            <img id='about-me' className='image-header' src="./IMG_2830.JPG" />
           </div>
           <div className='about-me-text-section-1-container'>
             <div className='goals-container'>
@@ -55,11 +83,7 @@ export function Main() {
               </ul>
             </div>
 
-            <div className='header-about-me-text-container'>
-              <h1>
-                About Me:
-              </h1>
-            </div>
+            <div className='header-about-me-text-container'><h1>About Me:</h1></div>
             <div className='paragraph-about-me-text-container'>
               <p>
                 Hello! My name is Zack Valavanis, and I’m passionate about continuing my journey into computer science and software engineering. I’m originally from the northside suburbs of Chicago, and in my free time, I enjoy playing guitar, going to concerts, traveling, and building side projects that challenge and inspire me.
@@ -67,21 +91,16 @@ export function Main() {
             </div>
 
             <div className='button-about-me-container'>
-              <button onClick={navigatetoaboutme} className='button-more-info-about-me'>
-                More Information
-              </button>
+              <button onClick={navigatetoaboutme} className='button-more-info-about-me'>More Information</button>
             </div>
           </div>
         </section>
       </div>
 
+      {/* Skills Section (UNCHANGED) */}
       <div id='skills' className='section-3-container'>
-        <div className='header-container-3'>
-          <h1 className='header-section-3'>Technologies I Work With</h1>
-        </div>
+        <div className='header-container-3'><h1 className='header-section-3'>Technologies I Work With</h1></div>
         <section className='skills-container'>
-
-          {/* TECH CATEGORIES */}
           {[
             {
               title: 'Languages',
@@ -105,21 +124,15 @@ export function Main() {
             },
             {
               title: 'Backend',
-              techs: [
-                { name: 'Rails', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rails/rails-original-wordmark.svg' }
-              ]
+              techs: [{ name: 'Rails', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rails/rails-original-wordmark.svg' }]
             },
             {
               title: 'Database',
-              techs: [
-                { name: 'PostgreSQL', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg' }
-              ]
+              techs: [{ name: 'PostgreSQL', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg' }]
             },
             {
               title: 'DevOps & Cloud',
-              techs: [
-                { name: 'Docker', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg' }
-              ]
+              techs: [{ name: 'Docker', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/docker/docker-original.svg' }]
             }
           ].map((category) => (
             <div key={category.title} className='container-headers-technologies'>
@@ -137,215 +150,65 @@ export function Main() {
         </section>
       </div>
 
-
+      {/* Work Experience Section */}
       <div className='section-2-container'>
         <section className='section-2'>
           <div className='left-side-section-2-container'>
-            <div id='experience' className='header-section-2'>
-              <h1>
-                Work Experience
-              </h1>
+            <div id='experience' className='header-section-2'><h1>Work Experience</h1></div>
+
+            <div className='accordion-container'>
+              {renderAccordion("Salus Wellness", "Co-Founder & Full Stack Software Engineer", [
+                "Built frontend using React and Material UI",
+                "Integrated backend with Firebase and REST APIs",
+                "Led a team of 3 developers"
+              ])}
+              {renderAccordion("Capture", "Software Engineering Intern", [
+                "Built frontend using React and Material UI",
+                "Integrated backend with Firebase and REST APIs",
+                "Led a team of 3 developers"
+              ])}
+              {renderAccordion("Neuberger Berman", "Client Associate / Data Analyst", [
+                "Built frontend using React and Material UI",
+                "Integrated backend with Firebase and REST APIs",
+                "Led a team of 3 developers"
+              ])}
             </div>
-
-            {/* First Expereince - NB */}
-
-            <div className='accordian-container'>
-              <Accordion expanded={true}>
-                <AccordionSummary sx={{ cursor: 'default' }}>
-                  <Box display="flex" flexDirection="row" alignItems="center" gap={1}>
-                    <Typography sx={{ fontSize: 18 }} fontWeight="bold">Salus Wellness</Typography>
-                    <Typography sx={{ fontSize: 16 }} variant="body2" color="text.secondary">– Co-Founder & Full Stack Software Engineer</Typography>
-                  </Box>
-                </AccordionSummary>
-                <AccordionDetails>
-                  <List>
-                    <ListItem>
-                      <ListItemIcon sx={{ minWidth: 20 }}>
-                        <FiberManualRecordIcon sx={{ fontSize: 8 }} />
-                      </ListItemIcon>
-                      <ListItemText primary="Built frontend using React and Material UI" />
-                    </ListItem>
-                    <ListItem>
-                      <ListItemIcon sx={{ minWidth: 20 }}>
-                        <FiberManualRecordIcon sx={{ fontSize: 8 }} />
-                      </ListItemIcon>
-                      <ListItemText primary="Integrated backend with Firebase and REST APIs" />
-                    </ListItem>
-                    <ListItem>
-                      <ListItemIcon sx={{ minWidth: 20 }}>
-                        <FiberManualRecordIcon sx={{ fontSize: 8 }} />
-                      </ListItemIcon>
-                      <ListItemText primary="Led a team of 3 developers" />
-                    </ListItem>
-                  </List>
-                </AccordionDetails>
-              </Accordion>
-
-              <Accordion expanded={true}>
-                <AccordionSummary sx={{ cursor: 'default' }}>
-                  <Box display="flex" flexDirection="row" alignItems="center" gap={1}>
-                    <Typography sx={{ fontSize: 18 }} fontWeight="bold">Capture</Typography>
-                    <Typography sx={{ fontSize: 16 }} variant="body2" color="text.secondary">– Software Engineering Intern</Typography>
-                  </Box>
-                </AccordionSummary>
-                <AccordionDetails>
-                  <List>
-                    <ListItem>
-                      <ListItemIcon sx={{ minWidth: 20 }}>
-                        <FiberManualRecordIcon sx={{ fontSize: 8 }} />
-                      </ListItemIcon>
-                      <ListItemText primary="Built frontend using React and Material UI" />
-                    </ListItem>
-                    <ListItem>
-                      <ListItemIcon sx={{ minWidth: 20 }}>
-                        <FiberManualRecordIcon sx={{ fontSize: 8 }} />
-                      </ListItemIcon>
-                      <ListItemText primary="Integrated backend with Firebase and REST APIs" />
-                    </ListItem>
-                    <ListItem>
-                      <ListItemIcon sx={{ minWidth: 20 }}>
-                        <FiberManualRecordIcon sx={{ fontSize: 8 }} />
-                      </ListItemIcon>
-                      <ListItemText primary="Led a team of 3 developers" />
-                    </ListItem>
-                  </List>
-                </AccordionDetails>
-              </Accordion>
-
-              <Accordion expanded={true}>
-                <AccordionSummary sx={{ cursor: 'default' }}>
-                  <Box display="flex" flexDirection="row" alignItems="center" gap={1}>
-                    <Typography sx={{ fontSize: 18 }} fontWeight="bold">Neuberger Berman</Typography>
-                    <Typography sx={{ fontSize: 16 }} variant="body2" color="text.secondary">– Client Associate / Data Analyst</Typography>
-                  </Box>
-                </AccordionSummary>
-                <AccordionDetails>
-                  <List>
-                    <ListItem>
-                      <ListItemIcon sx={{ minWidth: 20 }}>
-                        <FiberManualRecordIcon sx={{ fontSize: 8 }} />
-                      </ListItemIcon>
-                      <ListItemText primary="Built frontend using React and Material UI" />
-                    </ListItem>
-                    <ListItem>
-                      <ListItemIcon sx={{ minWidth: 20 }}>
-                        <FiberManualRecordIcon sx={{ fontSize: 8 }} />
-                      </ListItemIcon>
-                      <ListItemText primary="Integrated backend with Firebase and REST APIs" />
-                    </ListItem>
-                    <ListItem>
-                      <ListItemIcon sx={{ minWidth: 20 }}>
-                        <FiberManualRecordIcon sx={{ fontSize: 8 }} />
-                      </ListItemIcon>
-                      <ListItemText primary="Led a team of 3 developers" />
-                    </ListItem>
-                  </List>
-                </AccordionDetails>
-              </Accordion>
-
-            </div>
-
-            {/* Second Experience */}
-
 
             <div className='more-info-button-container'>
-              <button
-                onClick={navigatetoExperience}
-                className='more-info-Button'
-              >More Information
-              </button>
+              <button onClick={navigatetoExperience} className='more-info-Button'>More Information</button>
             </div>
           </div>
-
 
           <div className='right-side-section-2-container'>
             <img src='/coding_image.jpg' />
           </div>
         </section>
-      </div >
+      </div>
 
+      {/* Education Section */}
       <div className='education-container'>
         <section className='education-section-container'>
-          <div className='left-side-education-container'>
-            <img src='/Colorado.avif'></img>
-          </div>
-          <div className='accordian-containe-right-side'>
-
-            <div>
-              <h1 className='header-right-section-2'>Education & Certifications</h1>
-            </div>
-            <Accordion expanded={true}>
-              <AccordionSummary sx={{ cursor: 'default' }}>
-                <Box display="flex" flexDirection="row" alignItems="center" gap={1}>
-                  <Typography sx={{ fontSize: 18 }} fontWeight="bold">The University of Colorado Boulder</Typography>
-                  <Typography sx={{ fontSize: 16 }} variant="body2" color="text.secondary">– Bachelor of Science in Business Administration, Emphasis in Finance</Typography>
-                </Box>
-              </AccordionSummary>
-              <AccordionDetails>
-                <List>
-                  <ListItem>
-                    <ListItemIcon sx={{ minWidth: 20 }}>
-                      <FiberManualRecordIcon sx={{ fontSize: 8 }} />
-                    </ListItemIcon>
-                    <ListItemText primary="Built frontend using React and Material UI" />
-                  </ListItem>
-                  <ListItem>
-                    <ListItemIcon sx={{ minWidth: 20 }}>
-                      <FiberManualRecordIcon sx={{ fontSize: 8 }} />
-                    </ListItemIcon>
-                    <ListItemText primary="Integrated backend with Firebase and REST APIs" />
-                  </ListItem>
-                  <ListItem>
-                    <ListItemIcon sx={{ minWidth: 20 }}>
-                      <FiberManualRecordIcon sx={{ fontSize: 8 }} />
-                    </ListItemIcon>
-                    <ListItemText primary="Led a team of 3 developers" />
-                  </ListItem>
-                </List>
-              </AccordionDetails>
-            </Accordion>
-
-            <Accordion expanded={true}>
-              <AccordionSummary sx={{ cursor: 'default' }}>
-                <Box display="flex" flexDirection="row" alignItems="center" gap={1}>
-                  <Typography sx={{ fontSize: 18 }} fontWeight="bold">University of Wesminster - London, UK</Typography>
-                  <Typography sx={{ fontSize: 16 }} variant="body2" color="text.secondary">– Study Abroad</Typography>
-                </Box>
-              </AccordionSummary>
-              <AccordionDetails>
-                <List>
-                  <ListItem>
-                    <ListItemIcon sx={{ minWidth: 20 }}>
-                      <FiberManualRecordIcon sx={{ fontSize: 8 }} />
-                    </ListItemIcon>
-                    <ListItemText primary="Built frontend using React and Material UI" />
-                  </ListItem>
-                  <ListItem>
-                    <ListItemIcon sx={{ minWidth: 20 }}>
-                      <FiberManualRecordIcon sx={{ fontSize: 8 }} />
-                    </ListItemIcon>
-                    <ListItemText primary="Integrated backend with Firebase and REST APIs" />
-                  </ListItem>
-                  <ListItem>
-                    <ListItemIcon sx={{ minWidth: 20 }}>
-                      <FiberManualRecordIcon sx={{ fontSize: 8 }} />
-                    </ListItemIcon>
-                    <ListItemText primary="Led a team of 3 developers" />
-                  </ListItem>
-                </List>
-              </AccordionDetails>
-            </Accordion>
+          <div className='left-side-education-container'><img src='/Colorado.avif' /></div>
+          <div className='accordion-container-right-side'>
+            <h1 className='header-right-section-2'>Education & Certifications</h1>
+            {renderAccordion("The University of Colorado Boulder", "Bachelor of Science in Business Administration, Emphasis in Finance", [
+              "Relevant coursework in finance and technology",
+              "Participated in coding projects and group assignments",
+              "Leadership roles in student organizations"
+            ])}
+            {renderAccordion("University of Westminster - London, UK", "Study Abroad", [
+              "Explored global finance and business practices",
+              "Collaborated on international projects",
+              "Enhanced cultural competence and networking"
+            ])}
           </div>
         </section>
       </div>
 
-
-
+      {/* Contact Section */}
       <div className='section-4-container'>
-        <section id='contact-me' className='section-4'>
-          <ContactMe />
-        </section>
+        <section id='contact-me' className='section-4'><ContactMe /></section>
       </div>
-    </div >
-  )
+    </div>
+  );
 }
