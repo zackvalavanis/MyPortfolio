@@ -95,10 +95,14 @@
   width: 100%;
   background-color: #f9fafb;
   padding: 2rem;
+  box-sizing: border-box;
 }
 
 .section-2 {
   display: flex;
+  width: 100%;
+  flex-wrap: wrap;
+  /* ✅ prevents overflow */
 }
 
 .left-side-section-2-container {
@@ -108,21 +112,23 @@
   justify-content: flex-start;
   text-align: left;
   margin-left: 2em;
+  box-sizing: border-box;
 }
-
-
 
 .right-side-section-2-container {
   max-width: 50%;
+  flex: 1;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 20px;
+  box-sizing: border-box;
 }
 
 .right-side-section-2-container img {
   width: 100%;
-  height: 95%;
+  height: auto;
+  /* ✅ prevent stretching */
   object-fit: cover;
   display: block;
   border-radius: 30px;
@@ -165,45 +171,41 @@
   background-color: #000;
   color: #fff;
   display: flex;
-  flex-wrap: wrap;
-  /* allows wrapping when row is full */
-  justify-content: center;
-  /* spacing between items */
-  padding: 3rem;
+  flex-direction: column;
+  align-items: center;
+  padding: 3rem 1rem;
   width: 100%;
-  height: 60em;
+  height: auto;
+  /* ✅ remove fixed height */
 }
 
 .header-container-3 {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 100px;
-  height: 2px;
-
+  margin-bottom: 2rem;
 }
 
 .header-section-3 {
   font-size: 3rem;
+  text-align: center;
 }
 
 .skills-container {
   display: flex;
-  width: 220em;
+  flex-wrap: wrap;
   justify-content: center;
-  gap: 20px;
-  margin-bottom: 4rem;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+  width: 100%;
+  max-width: 1200px;
 }
 
 .technology-grid {
-  display: flex;
-  flex-direction: row;
-  /* horizontal row */
-  flex-wrap: wrap;
-  /* wrap when no space */
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
   gap: 1rem;
-  /* spacing between tech cards */
-  justify-content: center;
+  justify-items: center;
   width: 100%;
 }
 
@@ -211,27 +213,15 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   text-align: center;
   border-radius: 1rem;
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5), 0 0 8px rgba(255, 255, 255, 0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  padding: 1.2rem;
   width: 100%;
-  max-width: 400px;
-}
-
-.container-headers-technologies h2 {
-  position: absolute;
-  /* sticks at the top */
-  top: 10px;
-  /* adjust as needed */
-  left: 50%;
-  /* center horizontally */
-  transform: translateX(-50%);
-  font-size: 1.5rem;
+  max-width: 260px;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .container-headers-technologies:hover {
@@ -240,14 +230,13 @@
 }
 
 .images-logos {
-  width: 4rem;
-  height: 4rem;
+  width: 3.5rem;
+  height: 3.5rem;
   padding: 0.5rem;
   border-radius: 0.8rem;
   border: 1px solid rgba(255, 255, 255, 0.2);
   background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.5), 0 0 10px rgba(255, 255, 255, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   cursor: pointer;
@@ -261,25 +250,19 @@
 .container-image-description {
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 1.5rem;
+  margin-top: 0.8rem;
   font-size: 1rem;
-  text-align: center;
+  align-items: center;
 }
 
 /* ================= EDUCATION CONTAINER ================= */
-
 .education-section-container {
   display: flex;
   align-items: stretch;
   width: 100%;
   height: 100vh;
-  /* full screen height */
   gap: 30px;
-  /* space between left & right */
   padding: 30px;
-  /* padding around the whole section */
   box-sizing: border-box;
 }
 
@@ -293,9 +276,7 @@
   width: 100%;
   height: 100%;
   object-fit: cover;
-  /* keeps image looking good */
   border-radius: 30px;
-  /* keep it rounded cleanly */
   display: block;
 }
 
@@ -307,105 +288,111 @@
   border-radius: 30px;
   background: #111;
   color: #fff;
-  /* optional text contrast */
   overflow-y: auto;
-  /* scroll if content is taller */
 }
-
-
-
-
 
 /* ================= RESPONSIVE ================= */
 @media screen and (max-width: 1024px) {
 
+  /* Sections stack vertically */
   .section-1,
   .section-2,
-  .education-container section {
+  .education-section-container {
     flex-direction: column;
     height: auto;
   }
 
-  .image-section-1-container,
+  /* Containers full width */
   .about-me-text-section-1-container,
+  .image-section-1-container,
   .left-side-section-2-container,
   .right-side-section-2-container,
   .left-side-education-container,
-  .accordian-containe-right-side {
+  .accordian-container-right-side {
     width: 100%;
     max-width: 100%;
+    margin: 0 auto;
+    padding: 0 1rem;
+    box-sizing: border-box;
   }
 
+  /* About Me image fix */
+  .image-section-1-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .image-header {
+    width: 100%;
+    max-width: 500px;
+    /* optional, limits extremely large images */
+    height: auto;
+    margin: 0 auto;
+  }
+
+  /* Center text in About Me */
   .header-about-me-text-container,
   .paragraph-about-me-text-container,
   .bullets-about-me-goals,
   .button-about-me-container {
     text-align: center;
     padding-left: 0;
+    padding-right: 0;
+  }
+
+  .section-2-container {
+    flex-direction: column;
+    padding: 1rem;
   }
 }
 
 @media screen and (max-width: 768px) {
+
   .header-about-me-text-container {
     font-size: 1.8rem;
+    line-height: 1.3;
   }
 
   .paragraph-about-me-text-container,
   .bullets-about-me-goals {
     font-size: 1rem;
+    padding: 0 1rem;
   }
 
   .button-more-info-about-me {
-    padding: 8px 16px;
-    font-size: 0.9rem;
+    padding: 10px 18px;
+    font-size: 0.95rem;
   }
 
   .header-section-2,
   .header-right-section-2 {
-    font-size: 1.5rem;
+    font-size: 1.4rem;
+    text-align: center;
+    align-items: center;
   }
 
   .right-side-section-2-container img,
   .left-side-education-container img {
-    max-height: 250px;
+    width: 100%;
+    max-height: 220px;
+    object-fit: contain;
   }
 
   .header-section-3 {
-    font-size: 2rem;
-    margin-bottom: 2rem;
+    font-size: 1.8rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
   }
 
-  .technology-info-container {
-    grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
-    gap: 1.5rem;
-  }
-
-  .images-logos {
-    width: 3rem;
-    height: 3rem;
+  .technology-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 0.8rem;
   }
 
   .container-headers-technologies {
-    padding: 1rem;
-  }
-
-  .container-image-description {
-    font-size: 0.9rem;
-  }
-}
-
-@media screen and (max-width: 480px) {
-  .header-about-me-text-container {
-    font-size: 1.5rem;
-  }
-
-  .header-section-3 {
-    font-size: 1.5rem;
-  }
-
-  .paragraph-about-me-text-container,
-  .bullets-about-me-goals {
-    font-size: 0.9rem;
+    max-width: 200px;
+    padding: 0.8rem;
   }
 
   .images-logos {
@@ -413,12 +400,50 @@
     height: 2.5rem;
   }
 
-  .technology-info-container {
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-    gap: 1rem;
+  .container-image-description {
+    font-size: 0.85rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+
+  .header-about-me-text-container {
+    font-size: 1.4rem;
+    line-height: 1.2;
+  }
+
+  .header-section-3 {
+    font-size: 1.4rem;
+  }
+
+  .paragraph-about-me-text-container,
+  .bullets-about-me-goals {
+    font-size: 0.9rem;
+    padding: 0 0.8rem;
+  }
+
+  .technology-grid {
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  }
+
+  .container-headers-technologies {
+    max-width: 160px;
+    padding: 0.6rem;
+  }
+
+  .images-logos {
+    width: 2rem;
+    height: 2rem;
   }
 
   .container-image-description {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
+  }
+
+  .button-more-info-about-me {
+    width: 100%;
+    max-width: 280px;
+    margin: 0 auto;
+    display: block;
   }
 }
