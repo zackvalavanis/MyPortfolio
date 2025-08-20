@@ -10,6 +10,7 @@ export function NavBar() {
   const location = useLocation();
   const [isSticky, setIsSticky] = useState(true);
   const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
@@ -54,7 +55,7 @@ export function NavBar() {
         top: isSticky ? 0 : "-200px",
         width: "100%",
         backgroundColor: "black",
-        borderRadius: 0,
+        borderRadius: isMobile ? 0 : "200px",
         height: isMobile ? "6rem" : "8rem",
         px: isMobile ? 2 : 4,
         display: "flex",
@@ -73,7 +74,7 @@ export function NavBar() {
           justifyContent: "space-between",
         }}
       >
-        {/* HOME Button */}
+        {/* HOME Button on the left */}
         <Typography
           variant="h6"
           component="a"
@@ -90,9 +91,9 @@ export function NavBar() {
           HOME
         </Typography>
 
-        {/* Desktop Menu */}
+        {/* Desktop Menu in the center */}
         {!isMobile && (
-          <Box sx={{ display: "flex", gap: 4 }}>
+          <Box sx={{ display: "flex", gap: 4, position: "absolute", left: "50%", transform: "translateX(-50%)" }}>
             {pages.map((page) => (
               <Button
                 key={page}
@@ -112,34 +113,24 @@ export function NavBar() {
           </Box>
         )}
 
-        {/* Mobile Dropdown */}
+        {/* Mobile Dropdown on the right */}
         {isMobile && (
           <>
-            <IconButton
-              onClick={handleMenuOpen}
-              sx={{ color: "white" }}
-            >
+            <IconButton onClick={handleMenuOpen} sx={{ color: "white" }}>
               <MenuIcon />
             </IconButton>
-
             <Menu
               anchorEl={anchorEl}
               open={Boolean(anchorEl)}
               onClose={handleMenuClose}
-              anchorOrigin={{
-                vertical: "bottom",
-                horizontal: "right",
-              }}
-              transformOrigin={{
-                vertical: "top",
-                horizontal: "right",
-              }}
+              anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
+              transformOrigin={{ vertical: "top", horizontal: "right" }}
               slotProps={{
                 paper: {
                   sx: {
-                    ml: 3,
-                    mt: 4, // offset below the icon
-                    zIndex: 5000, // above navbar
+                    mt: 2, // slightly below icon
+                    ml: 2,
+                    zIndex: 5000,
                   },
                 },
               }}
