@@ -53,7 +53,10 @@ export function NavBar() {
       sx={{
         position: "fixed",
         top: isSticky ? 0 : "-200px",
-        width: "100%",
+        width: isMobile ? "100%" : "98%",
+        left: isMobile ? 0 : "50%",      // <-- center horizontally
+        transform: isMobile ? "none" : "translateX(-50%)",
+        paddingTop: "env(safe-area-inset-top)",
         backgroundColor: "black",
         borderRadius: isMobile ? 0 : "200px",
         height: isMobile ? "6rem" : "8rem",
