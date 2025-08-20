@@ -1,3 +1,7 @@
 .buttons-navigation-navbar:hover {
   text-decoration: underline !important;
 }
+
+.entire-nav-bar {
+  background-color: black !important;
+}

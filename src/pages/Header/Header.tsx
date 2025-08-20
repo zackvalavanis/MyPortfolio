@@ -4,8 +4,10 @@ import './Header.css'
 import { NavBar } from "./Navbar";
 
 export function Header() {
+
   return (
     <div>
+
       <NavBar />
       <div className='header-container'>
         <div className='header-name-links-container'>
