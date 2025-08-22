@@ -205,12 +205,18 @@
 
   .left-side-contact-container,
   .right-side-contact-container {
-    width: 90%;
-    min-height: auto;
+    width: 100%;
+    height: auto;
     padding: 20px;
   }
 
   .row-fields {
     flex-direction: column;
+  }
+
+  .submit-email-button-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 }
