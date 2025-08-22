@@ -200,18 +200,33 @@
   width: 100%;
 }
 
-/* Mobile responsiveness */
 @media (max-width: 900px) {
 
   .left-side-contact-container,
   .right-side-contact-container {
     width: 100%;
+    /* fits inside container */
     height: auto;
-    padding: 20px;
   }
 
   .row-fields {
     flex-direction: column;
+  }
+
+  .group-container {
+    justify-content: flex-start;
+    gap: 10px;
+    /* reduce space for icons */
+  }
+
+  .group-container h1 {
+    flex: 0 0 80px;
+    /* smaller fixed width */
+    font-size: 1rem;
+  }
+
+  .group-container p {
+    font-size: 0.95rem;
   }
 
   .submit-email-button-container {
