@@ -12,6 +12,8 @@ import ListItemText from '@mui/material/ListItemText';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import { ContactMe } from "../ContactMe/ContactMe";
+import { useMediaQuery } from "@mui/material";
+import { useTheme } from "@mui/material/styles";
 
 export function Main() {
   const navigate = useNavigate();
@@ -22,6 +24,9 @@ export function Main() {
 
   const navigatetoaboutme = () => navigate('/about-me');
   const navigatetoExperience = () => navigate('/experience');
+
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
 
   const renderAccordion = (title: string, subtitle: string, items: string[]) => (
     <Accordion
@@ -126,7 +131,6 @@ export function Main() {
               title: 'Backend',
               techs: [{ name: 'Rails', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/rails/rails-original-wordmark.svg' },
               { name: 'Express', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/express/express-original.svg' },
-                ,
               { name: 'Node.js', img: 'https://cdn.jsdelivr.net/gh/devicons/devicon/icons/nodejs/nodejs-original.svg' }
               ]
             },
@@ -182,17 +186,21 @@ export function Main() {
               <button onClick={navigatetoExperience} className='more-info-Button'>More Information</button>
             </div>
           </div>
-
-          <div className='right-side-section-2-container'>
-            <img src='/coding_image.jpg' />
-          </div>
+          {!isMobile ? (
+            <div className='right-side-section-2-container'>
+              <img src='/coding_image.jpg' />
+            </div>
+          ) : (
+            null
+          )
+          }
         </section>
       </div>
 
       {/* Education Section */}
       <div className='education-container'>
         <section className='education-section-container'>
-          <div className='left-side-education-container'><img src='/Colorado.avif' /></div>
+          {!isMobile ? <div className='left-side-education-container'><img src='/Colorado.avif' /></div> : null}
           <div className='accordion-container-right-side'>
             <h1 className='header-right-section-2'>Education & Certifications</h1>
             {renderAccordion("The University of Colorado Boulder", "Bachelor of Science in Business Administration, Emphasis in Finance", [

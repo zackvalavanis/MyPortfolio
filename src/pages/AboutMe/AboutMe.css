@@ -68,3 +68,40 @@
   transform: translateY(-5px);
   box-shadow: 0 8px 12px rgba(0, 0, 0, 0.2);
 }
+
+/* Existing styles remain unchanged */
+
+/* Mobile styles */
+@media screen and (max-width: 768px) {
+  .about-me-writing-container {
+    width: 90%;
+    /* full width with some padding */
+    margin-top: 15%;
+  }
+
+  .about-me-header-more-info {
+    font-size: 2.5rem;
+    /* smaller header */
+    text-align: center;
+  }
+
+  .about-me-paragraphs {
+    width: 90%;
+    font-size: 1.1rem;
+    /* smaller text */
+    margin-top: 1%;
+  }
+
+  .about-me-paragraphs p {
+    margin-bottom: 30px;
+    line-height: 1.5;
+  }
+
+  .button-navigation-container {
+    margin-top: 3rem;
+    margin-bottom: 5rem;
+    padding: 10px 16px;
+    font-size: 1rem;
+    justify-content: center;
+  }
+}

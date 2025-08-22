@@ -1,27 +1,38 @@
 .experience-container {
   display: flex;
   flex-direction: column;
-  align-items: center;
-  height: 60rem;
+  min-height: 60rem;
+  /* changed from height to min-height for better responsiveness */
   min-width: 50rem;
-  margin-top: 3rem;
-
+  margin-top: 20rem;
+  padding: 0 1rem;
+  margin-left: 10rem;
+  margin-right: 10rem;
+  /* add horizontal padding for smaller screens */
+  box-sizing: border-box;
 }
 
-.accordian-container-experience {
-  width: 80%;
+.accordion-container-experience {
+  /* fixed typo: "accordian" -> "accordion" */
+  width: 90%;
+
+  /* optional: prevent it from being too wide on large screens */
 }
 
 .summary-container {
   display: flex;
   justify-content: flex-start;
+  width: 100%;
+  /* ensure it spans container */
+  margin-bottom: 1rem;
 }
 
 .download-resume-button-container {
   display: flex;
-  flex: 1;
   justify-content: center;
   align-items: center;
+  width: 100%;
+  margin-top: 2rem;
 }
 
 .download-resume-button {
@@ -32,16 +43,48 @@
   color: white;
   border: none;
   width: 12rem;
-  padding: 10px 20px 10px 20px;
+  padding: 10px 20px;
   font-size: 1rem;
   border-radius: 20px;
   text-decoration: none;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease;
+  transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
 }
 
 .download-resume-button:hover {
   background-color: white;
   color: black;
   transform: translateY(-3px);
+}
+
+/* Responsive adjustments */
+@media screen and (max-width: 768px) {
+  .experience-container {
+    min-width: 90%;
+    /* better fit on smaller screens */
+    min-height: auto;
+    margin-Bottom: 20%;
+    margin-top: 40%;
+  }
+
+  .accordion-container-experience {
+    width: 100%;
+  }
+
+  .summary-container {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .download-resume-button {
+    width: 10rem;
+    /* smaller button for mobile */
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+
+  .header-section-2,
+  .header-right-section-2 {
+    text-align: center;
+  }
 }
