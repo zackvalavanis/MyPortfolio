@@ -30,7 +30,7 @@ export function Main() {
 
   const renderAccordion = (title: string, subtitle: string, items: string[]) => (
     <Accordion
-      defaultExpanded
+      defaultExpanded={!isMobile}
       sx={{
         borderRadius: 2,
         mb: 2,
