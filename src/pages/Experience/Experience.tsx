@@ -12,8 +12,13 @@ import ListItemText from '@mui/material/ListItemText';
 import Typography from '@mui/material/Typography';
 import Box from '@mui/material/Box';
 import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
+import { useMediaQuery, useTheme } from "@mui/material";
 
 export function Experience() {
+
+  const theme = useTheme();
+  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+
   useEffect(() => {
     window.scroll(0, 0);
   }, []);
@@ -23,8 +28,11 @@ export function Experience() {
       <NavBar />
 
       <div className='experience-container'>
+        <div>
+          <h1 style={{ marginBottom: 50, textAlign: 'center', fontSize: 50 }}>Work Experience</h1>
+        </div>
         {/* Salus Wellness Accordion */}
-        <Accordion className='accordian-container-experience' expanded>
+        <Accordion className='accordion-container-experience' defaultExpanded={!isMobile}>
           <AccordionSummary className='summary-container' sx={{ cursor: 'default' }}>
             <Box display="flex" flexDirection="row" alignItems="center" gap={1}>
               <Typography sx={{ fontSize: 18 }} fontWeight="bold">Salus Wellness</Typography>
@@ -56,7 +64,7 @@ export function Experience() {
         </Accordion>
 
         {/* Capture Accordion */}
-        <Accordion className='accordian-container-experience' expanded>
+        <Accordion className='accordion-container-experience' defaultExpanded={!isMobile}>
           <AccordionSummary className='summary-container' sx={{ cursor: 'default' }}>
             <Box display="flex" flexDirection="row" alignItems="center" gap={1}>
               <Typography sx={{ fontSize: 18 }} fontWeight="bold">Capture</Typography>
@@ -88,7 +96,7 @@ export function Experience() {
         </Accordion>
 
         {/* Neuberger Berman Accordion */}
-        <Accordion className='accordian-container-experience' expanded>
+        <Accordion className='accordion-container-experience' defaultExpanded={!isMobile}>
           <AccordionSummary className='summary-container-experience' sx={{ cursor: 'default' }}>
             <Box display="flex" flexDirection="row" alignItems="center" gap={1}>
               <Typography sx={{ fontSize: 18 }} fontWeight="bold">Neuberger Berman</Typography>

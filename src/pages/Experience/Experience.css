@@ -1,29 +1,26 @@
+/* Base styles (desktop first) */
 .experience-container {
   display: flex;
   flex-direction: column;
   min-height: 60rem;
-  /* changed from height to min-height for better responsiveness */
-  min-width: 50rem;
-  margin-top: 20rem;
-  padding: 0 1rem;
-  margin-left: 10rem;
-  margin-right: 10rem;
-  /* add horizontal padding for smaller screens */
+  width: 80%;
+  max-width: 1200px;
+  margin: 12rem auto 5rem auto;
+  /* centered with auto */
+  padding: 0 2rem;
   box-sizing: border-box;
 }
 
 .accordion-container-experience {
-  /* fixed typo: "accordian" -> "accordion" */
   width: 90%;
-
-  /* optional: prevent it from being too wide on large screens */
+  max-width: 1000px;
+  margin: 0 auto;
 }
 
 .summary-container {
   display: flex;
   justify-content: flex-start;
   width: 100%;
-  /* ensure it spans container */
   margin-bottom: 1rem;
 }
 
@@ -57,14 +54,13 @@
   transform: translateY(-3px);
 }
 
-/* Responsive adjustments */
-@media screen and (max-width: 768px) {
+/* Tablet (1024px and below) */
+@media screen and (max-width: 1024px) {
   .experience-container {
-    min-width: 90%;
-    /* better fit on smaller screens */
+    width: 90%;
+    margin: 8rem auto 3rem auto;
+    padding: 0 1.5rem;
     min-height: auto;
-    margin-Bottom: 20%;
-    margin-top: 40%;
   }
 
   .accordion-container-experience {
@@ -77,8 +73,34 @@
   }
 
   .download-resume-button {
+    width: 11rem;
+    font-size: 0.95rem;
+    padding: 9px 18px;
+  }
+}
+
+/* Mobile (768px and below) */
+@media screen and (max-width: 768px) {
+  .experience-container {
+    width: 95%;
+    margin: 8rem auto 2rem auto;
+    padding: 0 1rem;
+  }
+
+  .accordion-container-experience {
+    width: 100%;
+  }
+
+  .summary-container {
+    flex-direction: column;
+    /* stack text nicely */
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .download-resume-button {
     width: 10rem;
-    /* smaller button for mobile */
     font-size: 0.9rem;
     padding: 8px 16px;
   }
