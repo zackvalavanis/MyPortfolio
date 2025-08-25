@@ -71,14 +71,14 @@ export function Main() {
         </List>
 
         {techs && techs.length > 0 && (
-          <Box sx={{ mt: 2 }}>
+          <Box sx={{ mt: 2, ml: 2.5, mb: 2 }}>
             <Typography sx={{ fontWeight: 'bold', mb: 1 }}>Tech Used:</Typography>
             <Box display="flex" flexWrap="wrap" gap={1}>
               {techs.map((tech, idx) => (
                 <Box
                   key={idx}
                   sx={{
-                    px: 1.5,
+                    px: 2.5,
                     py: 0.5,
                     borderRadius: 1,
                     backgroundColor: '#f0f0f0',

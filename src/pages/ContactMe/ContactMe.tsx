@@ -40,7 +40,7 @@ export function ContactMe(): JSX.Element {
         <h1 className='header-in-container'>Professional Summary</h1>
         <div className='infomation-container'>
           <div className="pro-summary-container">
-            <h1>I am a passionate software engineer with a strong foundation in computer science and hands-on experience in web development, algorithms, and data structures. I excel at building scalable applications, solving complex problems, and continuously learning new technologies. With a focus on clean code and efficient solutions, I aim to contribute to impactful projects while growing as a developer in dynamic, innovative environments.</h1>
+            <h1>Hello! My name is Zack Valavanis, and I’m passionate about advancing my journey in computer science and software engineering. Originally from the northern suburbs of Chicago, I enjoy playing guitar, going to concerts, traveling, and working on side projects that challenge and inspire me.</h1>
           </div>
 
           <div className='group-container' onClick={handleEmailClick} style={{ cursor: "pointer" }}>
