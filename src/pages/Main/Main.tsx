@@ -27,8 +27,12 @@ export function Main() {
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-
-  const renderAccordion = (title: string, subtitle: string, items: string[]) => (
+  const renderAccordion = (
+    title: string,
+    subtitle: string,
+    items: string[],
+    techs?: string[]
+  ) => (
     <Accordion
       defaultExpanded={!isMobile}
       sx={{
@@ -65,9 +69,32 @@ export function Main() {
             </ListItem>
           ))}
         </List>
+
+        {techs && techs.length > 0 && (
+          <Box sx={{ mt: 2 }}>
+            <Typography sx={{ fontWeight: 'bold', mb: 1 }}>Tech Used:</Typography>
+            <Box display="flex" flexWrap="wrap" gap={1}>
+              {techs.map((tech, idx) => (
+                <Box
+                  key={idx}
+                  sx={{
+                    px: 1.5,
+                    py: 0.5,
+                    borderRadius: 1,
+                    backgroundColor: '#f0f0f0',
+                    fontSize: 13,
+                  }}
+                >
+                  {tech}
+                </Box>
+              ))}
+            </Box>
+          </Box>
+        )}
       </AccordionDetails>
     </Accordion>
   );
+
 
   return (
     <div className='main-container'>
@@ -80,12 +107,14 @@ export function Main() {
           <div className='about-me-text-section-1-container'>
             <div className='goals-container'>
               <h1 className='header-about-me-text-container'>2025 Goals:</h1>
-              <ul className='bullets-about-me-goals'>
-                <li>Enroll in a Post-Baccalaureate Program in CS as the first step toward a Master’s in Computer Science</li>
-                <li>Complete personal software projects</li>
-                <li>Apply for internships or relevant experience in tech</li>
-                <li>Expand knowledge in algorithms and data structures</li>
-              </ul>
+              <div className='bullet-container'>
+                <ul className='bullets-about-me-goals'>
+                  <li>Enroll in a Post-Baccalaureate Program in CS as the first step toward a Master’s in Computer Science</li>
+                  <li>Complete personal software projects</li>
+                  <li>Apply for internships or relevant experience in tech</li>
+                  <li>Expand knowledge in algorithms and data structures</li>
+                </ul>
+              </div>
             </div>
 
             <div className='header-about-me-text-container'><h1>About Me:</h1></div>
@@ -166,20 +195,20 @@ export function Main() {
 
             <div className='accordion-container'>
               {renderAccordion("Salus Wellness", "Co-Founder & Full Stack Software Engineer", [
-                "Built frontend using React and Material UI",
-                "Integrated backend with Firebase and REST APIs",
-                "Led a team of 3 developers"
-              ])}
+                "Developing core mobile application features in React Native, designing and implementing intuitive frontend screens",
+                "Building API integrations to connect React Native frontend with a Django backend, ensuring smooth data flow and scalability",
+                "Serving as founding engineer, guiding technical direction and mentoring a small development team"
+              ], ["React Native", "Django", "Python", "REST APIs", "PostgreSQL", "SupaBase", "Typescript"])}
               {renderAccordion("Capture", "Software Engineering Intern", [
-                "Built frontend using React and Material UI",
-                "Integrated backend with Firebase and REST APIs",
-                "Led a team of 3 developers"
-              ])}
+                "Developing mobile app frontend screens using React Native and TypeScript",
+                "Collaborating with backend engineers to ensure smooth API integration",
+                "Contributing to UI/UX improvements and bug fixes to enhance user experience"
+              ], ["React Native", "TypeScript"])}
               {renderAccordion("Neuberger Berman", "Client Associate / Data Analyst", [
-                "Built frontend using React and Material UI",
-                "Integrated backend with Firebase and REST APIs",
-                "Led a team of 3 developers"
-              ])}
+                "Automated financial reporting with VBA macros, reducing processing time by 40% and saving 56+ hours annually",
+                "Developed customized client presentations and dashboards for a $2.7B portfolio, highlighting KPIs such as sector allocation, volatility, and risk-adjusted returns",
+                "Delivered accurate, data-driven insights that strengthened client relationships and earned recognition as 'most reliable' by a leading client"
+              ], ["VBA", "Excel", "PowerPoint", "Data Analysis", "Reporting Automation"])}
             </div>
 
             <div className='more-info-button-container'>
@@ -203,15 +232,15 @@ export function Main() {
           {!isMobile ? <div className='left-side-education-container'><img src='/Colorado.avif' /></div> : null}
           <div className='accordion-container-right-side'>
             <h1 className='header-right-section-2'>Education & Certifications</h1>
-            {renderAccordion("The University of Colorado Boulder", "Bachelor of Science in Business Administration, Emphasis in Finance", [
-              "Relevant coursework in finance and technology",
-              "Participated in coding projects and group assignments",
-              "Leadership roles in student organizations"
+            {renderAccordion("The University of Colorado - Boulder", "Bachelor of Science in Business Administration, Emphasis in Finance", [
+              "B.S. in Finance with coursework in financial analysis, markets, and technology applications",
+              "warded the Chancellor’s Achievement Scholarship in recognition of strong academic performance and leadership potential",
+              "Completed projects and case studies applying quantitative and analytical methods to real-world finance problems"
             ])}
             {renderAccordion("University of Westminster - London, UK", "Study Abroad", [
               "Explored global finance and business practices",
-              "Collaborated on international projects",
-              "Enhanced cultural competence and networking"
+              "Collaborated with peers on cross-cultural projects analyzing global markets",
+              "Developed global perspective and adaptability through immersion in international business environments"
             ])}
           </div>
         </section>
