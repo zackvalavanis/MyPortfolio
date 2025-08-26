@@ -61,7 +61,7 @@ export function Education() {
           "Bachelor of Science in Business Administration, Emphasis in Finance",
           [
             "B.S. in Finance with coursework in financial analysis, markets, and technology applications",
-            "warded the Chancellor’s Achievement Scholarship in recognition of strong academic performance and leadership potential",
+            "Awarded the Chancellor’s Achievement Scholarship in recognition of strong academic performance and leadership potential",
             "Completed projects and case studies applying quantitative and analytical methods to real-world finance problems"
           ]
         )}
