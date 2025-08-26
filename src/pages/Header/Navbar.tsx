@@ -3,7 +3,7 @@ import { Toolbar, Typography, Button, Box, IconButton, Menu, MenuItem, useMediaQ
 import MenuIcon from "@mui/icons-material/Menu";
 import { useNavigate, useLocation } from "react-router-dom";
 
-const pages = ["About Me", "Experience", "Skills", "Contact Me"];
+const pages = ["About Me", "Skills", "Experience", "Education", "Contact Me"];
 
 export function NavBar() {
   const navigate = useNavigate();

@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import codingAnimation from '../../animations/coding-animation.json';
 import { useNavigate } from "react-router-dom";
 import './Main.css';
 import Accordion from '@mui/material/Accordion';
@@ -14,6 +15,7 @@ import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
 import { ContactMe } from "../ContactMe/ContactMe";
 import { useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
+import Lottie from 'lottie-react';
 
 export function Main() {
   const navigate = useNavigate();
@@ -24,6 +26,7 @@ export function Main() {
 
   const navigatetoaboutme = () => navigate('/about-me');
   const navigatetoExperience = () => navigate('/experience');
+  const navigatetoEducation = () => navigate('/education')
 
   const theme = useTheme();
   const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
@@ -191,7 +194,7 @@ export function Main() {
       <div className='section-2-container'>
         <section className='section-2'>
           <div className='left-side-section-2-container'>
-            <div id='experience' className='header-section-2'><h1>Work Experience</h1></div>
+            <div id='experience' className='header-section-2'><h1>Professional Experience</h1></div>
 
             <div className='accordion-container'>
               {renderAccordion("Salus Wellness", "Co-Founder & Full Stack Software Engineer", [
@@ -217,19 +220,24 @@ export function Main() {
           </div>
           {!isMobile ? (
             <div className='right-side-section-2-container'>
-              <img src='/coding_image.jpg' />
+              <Lottie
+                animationData={codingAnimation}
+                loop={true}
+                autoplay={true}
+                style={{ width: '100%', height: '100%' }}
+              />
             </div>
-          ) : (
-            null
-          )
-          }
+          ) : null}
         </section>
       </div>
 
       {/* Education Section */}
       <div className='education-container'>
-        <section className='education-section-container'>
-          {!isMobile ? <div className='left-side-education-container'><img src='/Colorado.avif' /></div> : null}
+        <section id='education' className='education-section-container'>
+          <div className='leftSide-contianer'>
+            {!isMobile ? <div className='left-side-education-container'><img src='/Colorado.avif' /></div> : null}
+            {!isMobile ? <div className='left-side-education-container'><img src='/University_of_Westminster.jpg' /></div> : null}
+          </div>
           <div className='accordion-container-right-side'>
             <h1 className='header-right-section-2'>Education & Certifications</h1>
             {renderAccordion("The University of Colorado - Boulder", "Bachelor of Science in Business Administration, Emphasis in Finance", [
@@ -242,6 +250,9 @@ export function Main() {
               "Collaborated with peers on cross-cultural projects analyzing global markets",
               "Developed global perspective and adaptability through immersion in international business environments"
             ])}
+            <div className='more-info-button-education'>
+              <button onClick={navigatetoEducation} className='more-info-Button'>More Information</button>
+            </div>
           </div>
         </section>
       </div>

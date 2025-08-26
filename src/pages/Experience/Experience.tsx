@@ -74,7 +74,7 @@ export function Experience() {
 
       <div className='experience-container'>
         <div>
-          <h1 style={{ marginBottom: 50, textAlign: isMobile ? 'center' : 'left', fontSize: 50 }}>Work Experience</h1>
+          <h1 style={{ marginBottom: 50, textAlign: isMobile ? 'center' : 'left', fontSize: 50 }}>Professional Experience</h1>
         </div>
 
         {renderJobAccordion(
