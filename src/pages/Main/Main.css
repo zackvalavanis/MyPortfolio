@@ -394,6 +394,14 @@
     gap: 2rem;
     /* adds consistent spacing between children */
   }
+
+  .more-info-button-container {
+    justify-content: center;
+  }
+
+  .more-info-button-education {
+    justify-content: center;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -422,6 +430,9 @@
     margin-bottom: 1rem;
   }
 
+  .more-info-button-container {
+    justify-content: center;
+  }
 
   .button-more-info-about-me {
     padding: 10px 18px;
@@ -440,6 +451,10 @@
     max-height: 220px;
     object-fit: contain;
     margin-bottom: 1.5rem;
+  }
+
+  .more-info-button-education {
+    justify-content: center;
   }
 }
 
@@ -481,5 +496,13 @@
     max-width: 280px;
     margin: 0 auto 1rem auto;
     display: block;
+  }
+
+  .more-info-button-container {
+    justify-content: center;
+  }
+
+  .more-info-button-education {
+    justify-content: center;
   }
 }

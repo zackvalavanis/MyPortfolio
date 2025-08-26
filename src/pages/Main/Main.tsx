@@ -250,7 +250,7 @@ export function Main() {
               "Collaborated with peers on cross-cultural projects analyzing global markets",
               "Developed global perspective and adaptability through immersion in international business environments"
             ])}
-            <div className='more-info-button-education'>
+            <div className='more-info-button-container'>
               <button onClick={navigatetoEducation} className='more-info-Button'>More Information</button>
             </div>
           </div>
