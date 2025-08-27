@@ -207,11 +207,6 @@ export function Main() {
                 "Collaborating with backend engineers to ensure smooth API integration",
                 "Contributing to UI/UX improvements and bug fixes to enhance user experience"
               ], ["React Native", "TypeScript"])}
-              {renderAccordion("Neuberger Berman", "Client Associate / Data Analyst", [
-                "Automated financial reporting with VBA macros, reducing processing time by 40% and saving 56+ hours annually",
-                "Developed customized client presentations and dashboards for a $2.7B portfolio, highlighting KPIs such as sector allocation, volatility, and risk-adjusted returns",
-                "Delivered accurate, data-driven insights that strengthened client relationships and earned recognition as 'most reliable' by a leading client"
-              ], ["VBA", "Excel", "PowerPoint", "Data Analysis", "Reporting Automation"])}
             </div>
 
             <div className='more-info-button-container'>
