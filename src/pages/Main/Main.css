@@ -290,7 +290,7 @@
 .left-side-education-container img {
   width: 800px;
   /* fixed width */
-  height: 350px;
+  height: 450px;
   /* fixed height */
   object-fit: cover;
   /* crop evenly */

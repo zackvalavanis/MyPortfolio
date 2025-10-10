@@ -235,6 +235,15 @@ export function Main() {
           </div>
           <div className='accordion-container-right-side'>
             <h1 className='header-right-section-2'>Education & Certifications</h1>
+            {renderAccordion(
+              "The University of Colorado – Boulder",
+              "Post-Baccalaureate in Computer Science (Starting January 2026)",
+              [
+                "Completing core computer science coursework including data structures, algorithms, and software development",
+                "Building a foundation for advanced study in computer science and transition from a finance background",
+                "Preparing for a master’s degree in computer science and a career in software engineering"
+              ]
+            )}
             {renderAccordion("The University of Colorado - Boulder", "Bachelor of Science in Business Administration, Emphasis in Finance", [
               "B.S. in Finance with coursework in financial analysis, markets, and technology applications",
               "Awarded the Chancellor’s Achievement Scholarship in recognition of strong academic performance and leadership potential",
