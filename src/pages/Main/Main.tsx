@@ -112,7 +112,7 @@ export function Main() {
               <h1 className='header-about-me-text-container'>2025 Goals:</h1>
               <div className='bullet-container'>
                 <ul className='bullets-about-me-goals'>
-                  <li>Enroll in a Post-Baccalaureate Program in CS as the first step toward a Master’s in Computer Science</li>
+                  <li>✅ Enroll in a Post-Baccalaureate Program in CS as the first step toward a Master’s in Computer Science</li>
                   <li>Complete personal software projects</li>
                   <li>Apply for internships or relevant experience in tech</li>
                   <li>Expand knowledge in algorithms and data structures</li>
