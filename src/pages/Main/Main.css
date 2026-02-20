@@ -265,8 +265,13 @@
   gap: 0.5rem;
   font-size: 0.72rem;
   font-weight: 500;
-  color: rgba(255, 255, 255, 0.7);
+  color: rgba(255, 255, 255, 0.95);
   width: 64px;
+}
+
+.container-image-description p {
+  color: rgba(255, 255, 255, 0.95);
+  margin: 0;
 }
 
 .images-logos {
