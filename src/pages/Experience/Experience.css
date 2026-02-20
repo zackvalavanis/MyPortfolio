@@ -1,112 +1,295 @@
-/* Base styles (desktop first) */
-.experience-container {
+/* ============================================================
+   EXPERIENCE PAGE — Editorial Architect Design System
+   ============================================================ */
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Outfit:wght@300;400;500;600;700&display=swap');
+
+:root {
+  --color-cream:       #f5f0eb;
+  --color-warm-white:  #faf8f5;
+  --color-ink:         #1a1a1a;
+  --color-graphite:    #3d3d3d;
+  --color-stone:       #6b6560;
+  --color-accent:      #c45d3e;
+  --color-sand:        #c4bdb6;
+
+  --font-display: 'DM Serif Display', Georgia, serif;
+  --font-body:    'Outfit', system-ui, sans-serif;
+
+  --radius-sm:   10px;
+  --radius-pill: 50px;
+
+  --shadow-card: 0 4px 20px rgba(26, 26, 26, 0.08);
+  --shadow-lift: 0 12px 32px rgba(26, 26, 26, 0.12);
+
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-fast: 0.2s var(--ease-out-expo);
+  --transition-med:  0.35s var(--ease-out-expo);
+
+  --max-width: 820px;
+}
+
+
+/* ── Page shell ── */
+.page {
   display: flex;
   flex-direction: column;
-  min-height: 60rem;
-  width: 80%;
-  max-width: 1200px;
-  margin: 12rem auto 5rem auto;
-  /* centered with auto */
-  padding: 0 2rem;
-  box-sizing: border-box;
-}
-
-.accordion-container-experience {
-  width: 90%;
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.summary-container {
-  display: flex;
-  justify-content: flex-start;
   width: 100%;
+  min-height: 100vh;
+  font-family: var(--font-body);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+
+/* ── Section wrapper ── */
+.experience-container {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-width: var(--max-width);
+  margin: 120px auto 4rem auto;
+  padding: 0 2rem;
+  background: var(--color-cream);
+}
+
+
+/* ── Header ── */
+.section-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent);
   margin-bottom: 1rem;
 }
 
-.download-resume-button-container {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.section-label::before {
+  content: '';
+  display: inline-block;
+  width: 24px;
+  height: 2px;
+  background: var(--color-accent);
+  border-radius: 1px;
+}
+
+.header-experience {
+  font-family: var(--font-display);
+  font-size: 3rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  line-height: 1.15;
+  margin: 0 0 2.5rem 0;
+}
+
+.header-container-experience {
   width: 100%;
+  text-align: left;
+}
+
+
+/* ── Job Card ── */
+.job-card {
+  border-radius: var(--radius-sm);
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(26, 26, 26, 0.08);
+  background: white;
+  overflow: hidden;
+  transition: box-shadow var(--transition-med);
+}
+
+.job-card:hover {
+  box-shadow: var(--shadow-card);
+}
+
+/* Card header */
+.job-card-header {
+  padding: 1.4rem 1.5rem 0.6rem;
+  border-bottom: 1px solid rgba(26, 26, 26, 0.05);
+}
+
+.job-card-header h3 {
+  font-family: var(--font-body);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--color-ink);
+  margin: 0 0 0.2rem 0;
+}
+
+.job-card-header span {
+  font-size: 0.88rem;
+  font-weight: 400;
+  color: var(--color-stone);
+}
+
+/* Card body */
+.job-card-body {
+  padding: 1rem 1.5rem 1.5rem;
+}
+
+.job-card-body ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.job-card-body li {
+  position: relative;
+  padding: 0.5rem 0 0.5rem 1.2rem;
+  font-size: 0.95rem;
+  line-height: 1.65;
+  color: var(--color-graphite);
+}
+
+.job-card-body li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.95rem;
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: var(--color-accent);
+}
+
+/* Tech tags */
+.tech-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(26, 26, 26, 0.06);
+}
+
+.tech-tag {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  background: var(--color-cream);
+  color: var(--color-graphite);
+  border: 1px solid rgba(26, 26, 26, 0.06);
+}
+
+
+/* ── Download Resume Button ── */
+.download-resume-button-container {
   margin-top: 2rem;
+  width: 100%;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .download-resume-button {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  justify-content: center;
-  background-color: black;
-  color: white;
-  border: none;
-  width: 12rem;
-  padding: 10px 20px;
-  font-size: 1rem;
-  border-radius: 20px;
+  gap: 0.5rem;
+  font-family: var(--font-body);
+  font-size: 0.88rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
   text-decoration: none;
+  color: var(--color-warm-white);
+  background: var(--color-ink);
+  border: 2px solid var(--color-ink);
+  padding: 12px 28px;
+  border-radius: var(--radius-pill);
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s ease, color 0.3s ease;
+  transition:
+    background var(--transition-fast),
+    color var(--transition-fast),
+    transform var(--transition-fast),
+    box-shadow var(--transition-fast);
+}
+
+.download-resume-button::after {
+  content: '↓';
+  transition: transform var(--transition-fast);
 }
 
 .download-resume-button:hover {
-  background-color: white;
-  color: black;
-  transform: translateY(-3px);
+  background: transparent;
+  color: var(--color-ink);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lift);
 }
 
-/* Tablet (1024px and below) */
+.download-resume-button:hover::after {
+  transform: translateY(2px);
+}
+
+
+/* ============================================================
+   RESPONSIVE — TABLET (≤ 1024px)
+   ============================================================ */
 @media screen and (max-width: 1024px) {
   .experience-container {
-    width: 90%;
-    margin: 8rem auto 3rem auto;
-    padding: 0 1.5rem;
-    min-height: auto;
+    margin-top: 100px;
   }
 
-  .accordion-container-experience {
-    width: 100%;
-  }
-
-  .summary-container {
-    justify-content: center;
+  .header-experience {
+    font-size: 2.5rem;
     text-align: center;
   }
 
-  .download-resume-button {
-    width: 11rem;
-    font-size: 0.95rem;
-    padding: 9px 18px;
+  .header-container-experience {
+    text-align: center;
+  }
+
+  .download-resume-button-container {
+    justify-content: center;
   }
 }
 
-/* Mobile (768px and below) */
+
+/* ============================================================
+   RESPONSIVE — MOBILE (≤ 768px)
+   ============================================================ */
 @media screen and (max-width: 768px) {
   .experience-container {
-    width: 95%;
-    margin: 8rem auto 2rem auto;
+    margin-top: 80px;
+    margin-bottom: 2.5rem;
+    padding: 0 1.25rem;
+  }
+
+  .header-experience {
+    font-size: 2rem;
+  }
+
+  .download-resume-button {
+    width: 100%;
+    max-width: 280px;
+    justify-content: center;
+  }
+}
+
+
+/* ============================================================
+   RESPONSIVE — SMALL MOBILE (≤ 480px)
+   ============================================================ */
+@media screen and (max-width: 480px) {
+  .experience-container {
+    margin-top: 70px;
     padding: 0 1rem;
   }
 
-  .accordion-container-experience {
-    width: 100%;
+  .header-experience {
+    font-size: 1.7rem;
   }
 
-  .summary-container {
-    flex-direction: column;
-    /* stack text nicely */
-    justify-content: center;
-    align-items: center;
-    text-align: center;
+  .job-card-header {
+    padding: 1rem;
   }
 
-  .download-resume-button {
-    width: 10rem;
-    font-size: 0.9rem;
-    padding: 8px 16px;
-  }
-
-  .header-section-2,
-  .header-right-section-2 {
-    text-align: center;
+  .job-card-body {
+    padding: 0.75rem 1rem 1.25rem;
   }
 }

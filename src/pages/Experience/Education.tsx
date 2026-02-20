@@ -1,122 +1,147 @@
-import React, { useEffect } from "react";
-import './Education.css';
+import React, { useEffect, useState, useCallback } from "react";
 import { NavBar } from "../Header/Navbar";
 import { Footer } from "../Footer/Footer";
-import Accordion from '@mui/material/Accordion';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import Typography from '@mui/material/Typography';
-import Box from '@mui/material/Box';
-import FiberManualRecordIcon from '@mui/icons-material/FiberManualRecord';
-import { useMediaQuery, useTheme } from "@mui/material";
+import "./Education.css";
 
-export function Education() {
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
+// ─── Custom Accordion (same pattern as Main) ─────────────────────────────────
 
-  useEffect(() => {
-    window.scroll(0, 0);
-  }, []);
+interface AccordionProps {
+  title: string;
+  subtitle: string;
+  items: string[];
+  defaultOpen?: boolean;
+}
 
-
-  const renderAccordion = (
-    title: string,
-    subtitle: string,
-    items: string[],
-    techs?: string[]
-  ) => (
-    <Accordion
-      defaultExpanded={!isMobile}
-      sx={{
-        width: "100%",
-        borderRadius: 2,
-        mb: 2,
-        boxShadow: '0 4px 10px rgba(0,0,0,0.1)',
-        '&:before': { display: 'none' },
-      }}
-    >
-      <AccordionSummary
-        sx={{
-          display: 'flex',
-          justifyContent: 'center',
-          alignItems: 'center',
-          cursor: 'pointer',
-          backgroundColor: 'black',
-          color: 'white',
-          borderRadius: 2,
-          '&:hover': { backgroundColor: 'white', color: 'black' },
-          px: 2,
-          py: 1,
-          mt: 3
-        }}
-      >
-        <Box display="flex" flexDirection="column" >
-          <Typography sx={{ fontSize: 18, fontWeight: 'bold' }}>{title}</Typography>
-          <Typography sx={{ fontSize: 14, fontWeight: 400 }}>{subtitle}</Typography>
-        </Box>
-      </AccordionSummary>
-      <AccordionDetails sx={{ px: 2, py: 1 }}>
-        <List sx={{ ml: 2 }}>
-          {items.map((item, idx) => (
-            <ListItem key={idx} sx={{ py: 0.5 }}>
-              <ListItemIcon sx={{ minWidth: 20 }}>
-                <FiberManualRecordIcon sx={{ fontSize: 8 }} />
-              </ListItemIcon>
-              <ListItemText primary={item} />
-            </ListItem>
-          ))}
-        </List>
-      </AccordionDetails>
-    </Accordion>
-  );
-
-
+function CustomAccordion({ title, subtitle, items, defaultOpen = false }: AccordionProps) {
+  const [isOpen, setIsOpen] = useState(defaultOpen);
+  const toggle = useCallback(() => setIsOpen((prev) => !prev), []);
 
   return (
-    <div className='page'>
+    <div className={`custom-accordion ${isOpen ? "is-open" : ""}`}>
+      <button
+        className="custom-accordion-trigger"
+        onClick={toggle}
+        aria-expanded={isOpen}
+      >
+        <div className="custom-accordion-trigger-text">
+          <h3>{title}</h3>
+          {subtitle && <span>{subtitle}</span>}
+        </div>
+        <span className="custom-accordion-chevron" aria-hidden="true">
+          ▾
+        </span>
+      </button>
+
+      <div className="custom-accordion-body">
+        <div className="custom-accordion-body-inner">
+          <div className="custom-accordion-content">
+            <ul>
+              {items.map((item, idx) => (
+                <li key={idx}>{item}</li>
+              ))}
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+// ─── Hook: Responsive check ─────────────────────────────────────────────────
+
+function useIsMobile(breakpoint = 768) {
+  const [isMobile, setIsMobile] = useState(
+    () => typeof window !== "undefined" && window.innerWidth <= breakpoint
+  );
+
+  useEffect(() => {
+    const mql = window.matchMedia(`(max-width: ${breakpoint}px)`);
+    const handler = (e: MediaQueryListEvent) => setIsMobile(e.matches);
+    mql.addEventListener("change", handler);
+    return () => mql.removeEventListener("change", handler);
+  }, [breakpoint]);
+
+  return isMobile;
+}
+
+// ─── Page Component ──────────────────────────────────────────────────────────
+
+export function Education() {
+  const isMobile = useIsMobile();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
+  return (
+    <div className="page">
       <NavBar />
-      {/* Education Section */}
-      <div className='education-container-education'>
-        <section className='education-section-container-education'>
-          <div className='accordion-container-education'>
-            <h1 style={{ marginBottom: 20, textAlign: isMobile ? 'center' : 'left', fontSize: 50 }} className='header-education'>Education & Certifications</h1>
-            {renderAccordion("University of Colorado – Boulder", "Post-Baccalaureate in Computer Science (Starting January 2026)",
-              [
+
+      <main className="education-container-education">
+        <section className="education-section-container-education">
+          <div className="accordion-container-education">
+            <div className="header-container-education">
+              <span className="section-label">Background</span>
+              <h1 className="header-education">
+                Education &amp; Certifications
+              </h1>
+            </div>
+
+            <CustomAccordion
+              title="University of Colorado – Boulder"
+              subtitle="Post-Baccalaureate in Computer Science (Starting January 2026)"
+              defaultOpen={!isMobile}
+              items={[
                 "Completing core computer science coursework including data structures, algorithms, and software development",
                 "Building a foundation for advanced study in computer science and transition from a finance background",
-                "Preparing for a master’s degree in computer science and a career in software engineering"
-              ]
-            )}
-            {renderAccordion("The University of Colorado - Boulder", "Bachelor of Science in Business Administration, Emphasis in Finance", [
-              "B.S. in Finance with coursework in financial analysis, markets, and technology applications",
-              "Awarded the Chancellor’s Achievement Scholarship in recognition of strong academic performance and leadership potential",
-              "Completed projects and case studies applying quantitative and analytical methods to real-world finance problems"
-            ])}
-            {renderAccordion("University of Westminster - London, UK", "Study Abroad", [
-              "Explored global finance and business practices",
-              "Collaborated with peers on cross-cultural projects analyzing global markets",
-              "Developed global perspective and adaptability through immersion in international business environments"
-            ])}
-            {renderAccordion("Certifications", "", [
-              "Certification in Blockchain and Digital Assets (CBDA) – DACFP",
-              "Google Project Management Certificate – Google/Udemy",
-              "Tableau 2022 A-Z: Hands-on Tableau Training for Data Science – Udemy",
-              "SIE (Securities Industry Essentials Exam) – FINRA",
-              "Series 3 (National Commodities Futures Exam) – FINRA/NFA",
-              "Series 7 (General Securities Representative Exam) – FINRA",
-              "Series 63 (Uniform Securities Agent State Law Exam) – NASAA/FINRA",
-              "Series 65 (Uniform Investment Adviser Law Exam) – NASAA"
-            ])}
+                "Preparing for a master's degree in computer science and a career in software engineering",
+              ]}
+            />
+
+            <CustomAccordion
+              title="University of Colorado – Boulder"
+              subtitle="Bachelor of Science in Business Administration, Emphasis in Finance"
+              defaultOpen={!isMobile}
+              items={[
+                "B.S. in Finance with coursework in financial analysis, markets, and technology applications",
+                "Awarded the Chancellor's Achievement Scholarship in recognition of strong academic performance and leadership potential",
+                "Completed projects and case studies applying quantitative and analytical methods to real-world finance problems",
+              ]}
+            />
+
+            <CustomAccordion
+              title="University of Westminster – London, UK"
+              subtitle="Study Abroad"
+              items={[
+                "Explored global finance and business practices through an international academic curriculum",
+                "Collaborated with peers on cross-cultural projects analyzing global markets",
+                "Developed global perspective and adaptability through immersion in international business environments",
+              ]}
+            />
+
+            <CustomAccordion
+              title="Certifications"
+              subtitle=""
+              items={[
+                "Certification in Blockchain and Digital Assets (CBDA) – DACFP",
+                "Google Project Management Certificate – Google/Udemy",
+                "Tableau 2022 A-Z: Hands-on Tableau Training for Data Science – Udemy",
+                "SIE (Securities Industry Essentials Exam) – FINRA",
+                "Series 3 (National Commodities Futures Exam) – FINRA/NFA",
+                "Series 7 (General Securities Representative Exam) – FINRA",
+                "Series 63 (Uniform Securities Agent State Law Exam) – NASAA/FINRA",
+                "Series 65 (Uniform Investment Adviser Law Exam) – NASAA",
+              ]}
+            />
           </div>
-          <div className='download-resume-button-container'>
-            <a href='./ZackValavanisResume.pdf' className='download-resume-button'>Download Resume</a>
+
+          <div className="download-resume-button-container">
+            <a href="./ZackValavanisResume.pdf" className="download-resume-button">
+              Download Resume
+            </a>
           </div>
         </section>
-      </div>
+      </main>
 
       <Footer />
     </div>

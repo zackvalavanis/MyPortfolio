@@ -1,157 +1,123 @@
-import React, { useState, useEffect } from "react";
-import { Toolbar, Typography, Button, Box, IconButton, Menu, MenuItem, useMediaQuery, useTheme } from "@mui/material";
-import MenuIcon from "@mui/icons-material/Menu";
+import React, { useState, useEffect, useCallback } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
+import "./Navbar.css";
 
-const pages = ["About Me", "Skills", "Experience", "Education", "Contact Me"];
+const NAV_ITEMS = [
+  { label: "About", id: "about-me" },
+  { label: "Skills", id: "skills" },
+  { label: "Experience", id: "experience" },
+  { label: "Education", id: "education" },
+  { label: "Contact", id: "contact-me" },
+];
 
 export function NavBar() {
   const navigate = useNavigate();
   const location = useLocation();
-  const [isSticky, setIsSticky] = useState(true);
-  const [anchorEl, setAnchorEl] = useState<null | HTMLElement>(null);
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
 
-  const theme = useTheme();
-  const isMobile = useMediaQuery(theme.breakpoints.down("sm"));
-
-  const handleNavigation = (page: string) => {
-    const id = page.toLowerCase().replace(/\s+/g, "-");
-    const el = document.getElementById(id);
-    if (el) el.scrollIntoView({ behavior: "smooth" });
-    handleMenuClose();
-  };
-
-  const handleNavigationFromAboutMePage = (page: string) => {
-    const id = page.toLowerCase().replace(/\s+/g, "-");
-    navigate(`/#${page}`);
-    setTimeout(() => {
-      const el = document.getElementById(id);
-      if (el) el.scrollIntoView({ behavior: "smooth" });
-    }, 100);
-    handleMenuClose();
-  };
-
-  const handleMenuOpen = (event: React.MouseEvent<HTMLElement>) => {
-    setAnchorEl(event.currentTarget);
-  };
-
-  const handleMenuClose = () => {
-    setAnchorEl(null);
-  };
-
+  // Close menu on route change
   useEffect(() => {
-    const handleScroll = () => {
-      const triggerPoint = 400;
-      setIsSticky(window.scrollY < triggerPoint);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    setMenuOpen(false);
+  }, [location.pathname]);
+
+  // Scroll detection for nav background
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 40);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  // Lock body scroll when mobile menu is open
+  useEffect(() => {
+    document.body.style.overflow = menuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [menuOpen]);
+
+  const scrollToSection = useCallback(
+    (id: string) => {
+      if (location.pathname === "/") {
+        const el = document.getElementById(id);
+        if (el) el.scrollIntoView({ behavior: "smooth" });
+      } else {
+        navigate("/");
+        setTimeout(() => {
+          const el = document.getElementById(id);
+          if (el) el.scrollIntoView({ behavior: "smooth" });
+        }, 200);
+      }
+      setMenuOpen(false);
+    },
+    [location.pathname, navigate]
+  );
+
   return (
-    <Box
-      sx={{
-        position: "fixed",
-        top: isSticky ? 0 : "-200px",
-        width: isMobile ? "100%" : "98%",
-        left: isMobile ? 0 : "50%",      // <-- center horizontally
-        transform: isMobile ? "none" : "translateX(-50%)",
-        paddingTop: "env(safe-area-inset-top)",
-        backgroundColor: "black",
-        borderRadius: isMobile ? 0 : "200px",
-        height: isMobile ? "6rem" : "8rem",
-        px: isMobile ? 2 : 4,
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        boxShadow: "0 2px 10px rgba(0,0,0,0.7)",
-        transition: "top 0.3s ease",
-        zIndex: 4300,
-      }}
-    >
-      <Toolbar
-        sx={{
-          width: "100%",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "space-between",
-        }}
-      >
-        {/* HOME Button on the left */}
-        <Typography
-          variant="h6"
-          component="a"
-          onClick={() => navigate("/")}
-          sx={{
-            fontFamily: "monospace",
-            fontWeight: 700,
-            letterSpacing: ".3rem",
-            color: "white",
-            textDecoration: "none",
-            cursor: "pointer",
-          }}
-        >
-          HOME
-        </Typography>
+    <>
+      <nav className={`nav ${scrolled ? "nav--scrolled" : ""}`}>
+        <div className="nav__inner">
+          {/* Logo */}
+          <button className="nav__logo" onClick={() => navigate("/")}>
+            Zack<span className="nav__logo-dot">.</span>
+          </button>
 
-        {/* Desktop Menu in the center */}
-        {!isMobile && (
-          <Box sx={{ display: "flex", gap: 4, position: "absolute", left: "50%", transform: "translateX(-50%)" }}>
-            {pages.map((page) => (
-              <Button
-                key={page}
-                onClick={() =>
-                  location.pathname === "/" ? handleNavigation(page) : handleNavigationFromAboutMePage(page)
-                }
-                sx={{
-                  color: "white",
-                  textTransform: "none",
-                  fontWeight: 800,
-                  fontSize: 16,
-                }}
-              >
-                {page}
-              </Button>
-            ))}
-          </Box>
-        )}
-
-        {/* Mobile Dropdown on the right */}
-        {isMobile && (
-          <>
-            <IconButton onClick={handleMenuOpen} sx={{ color: "white" }}>
-              <MenuIcon />
-            </IconButton>
-            <Menu
-              anchorEl={anchorEl}
-              open={Boolean(anchorEl)}
-              onClose={handleMenuClose}
-              anchorOrigin={{ vertical: "bottom", horizontal: "right" }}
-              transformOrigin={{ vertical: "top", horizontal: "right" }}
-              slotProps={{
-                paper: {
-                  sx: {
-                    mt: 2, // slightly below icon
-                    ml: 2,
-                    zIndex: 5000,
-                  },
-                },
-              }}
-            >
-              {pages.map((page) => (
-                <MenuItem
-                  key={page}
-                  onClick={() =>
-                    location.pathname === "/" ? handleNavigation(page) : handleNavigationFromAboutMePage(page)
-                  }
+          {/* Desktop links */}
+          <ul className="nav__links">
+            {NAV_ITEMS.map((item) => (
+              <li key={item.id}>
+                <button
+                  className="nav__link"
+                  onClick={() => scrollToSection(item.id)}
                 >
-                  {page}
-                </MenuItem>
-              ))}
-            </Menu>
-          </>
-        )}
-      </Toolbar>
-    </Box>
+                  {item.label}
+                </button>
+              </li>
+            ))}
+          </ul>
+
+          {/* Desktop resume link */}
+          <a href="./ZackValavanisResume.pdf" className="nav__resume">
+            Resume
+          </a>
+
+          {/* Mobile hamburger */}
+          <button
+            className="nav__toggle"
+            onClick={() => setMenuOpen((prev) => !prev)}
+            aria-label="Toggle navigation menu"
+            aria-expanded={menuOpen}
+          >
+            <span className={`hamburger ${menuOpen ? "is-open" : ""}`}>
+              <span className="hamburger__line" />
+              <span className="hamburger__line" />
+            </span>
+          </button>
+        </div>
+      </nav>
+
+      {/* ── Fullscreen mobile overlay ── */}
+      <div className={`mobile-overlay ${menuOpen ? "is-open" : ""}`}>
+        <div className="mobile-overlay__content">
+          {NAV_ITEMS.map((item, i) => (
+            <button
+              key={item.id}
+              className="mobile-overlay__link"
+              onClick={() => scrollToSection(item.id)}
+              style={{ animationDelay: `${0.08 + i * 0.05}s` }}
+            >
+              <span className="mobile-overlay__link-number">
+                0{i + 1}
+              </span>
+              {item.label}
+            </button>
+          ))}
+
+          <a href="./ZackValavanisResume.pdf" className="mobile-overlay__resume">
+            Download Resume ↓
+          </a>
+        </div>
+      </div>
+    </>
   );
 }

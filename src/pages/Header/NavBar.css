@@ -1,7 +1,359 @@
-.buttons-navigation-navbar:hover {
-  text-decoration: underline !important;
+/* ============================================================
+   NAVBAR — Editorial Architect
+   Dark text on transparent → White text on scrolled dark bg
+   ============================================================ */
+
+/* ── Nav bar ── */
+.nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 5000;
+  height: 4rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  transition:
+    background 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    box-shadow 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+    backdrop-filter 0.4s ease;
+  font-family: var(--font-body, 'Outfit', system-ui, sans-serif);
+  -webkit-font-smoothing: antialiased;
 }
 
-.entire-nav-bar {
-  background-color: black !important;
+.nav--scrolled {
+  background: rgba(26, 26, 26, 0.92);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.06);
+}
+
+.nav__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  max-width: 1280px;
+  padding: 0 2rem;
+}
+
+
+/* ============================================================
+   LOGO — dark by default, white when scrolled
+   ============================================================ */
+.nav__logo {
+  font-family: var(--font-display, 'DM Serif Display', Georgia, serif);
+  font-size: 1.3rem;
+  font-weight: 400;
+  color: var(--color-ink, #1a1a1a);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  letter-spacing: -0.01em;
+  transition: color 0.4s ease, opacity 0.2s ease;
+}
+
+.nav--scrolled .nav__logo {
+  color: white;
+}
+
+.nav__logo:hover {
+  opacity: 0.7;
+}
+
+.nav__logo-dot {
+  color: var(--color-accent, #c45d3e);
+}
+
+
+/* ============================================================
+   DESKTOP LINKS — dark by default, light when scrolled
+   ============================================================ */
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: 0.15rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.nav__link {
+  font-family: var(--font-body, 'Outfit', system-ui, sans-serif);
+  font-size: 0.84rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  color: var(--color-stone, #6b6560);
+  background: none;
+  border: none;
+  padding: 0.45rem 1rem;
+  border-radius: 50px;
+  cursor: pointer;
+  position: relative;
+  transition:
+    color 0.3s ease,
+    background 0.3s ease;
+}
+
+.nav__link:hover {
+  color: var(--color-ink, #1a1a1a);
+  background: rgba(26, 26, 26, 0.06);
+}
+
+/* Scrolled state — light links */
+.nav--scrolled .nav__link {
+  color: rgba(255, 255, 255, 0.55);
+}
+
+.nav--scrolled .nav__link:hover {
+  color: rgba(255, 255, 255, 0.95);
+  background: rgba(255, 255, 255, 0.08);
+}
+
+
+/* ============================================================
+   DESKTOP RESUME BUTTON — adapts to scroll state
+   ============================================================ */
+.nav__resume {
+  font-family: var(--font-body, 'Outfit', system-ui, sans-serif);
+  font-size: 0.78rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-decoration: none;
+  color: var(--color-warm-white, #faf8f5);
+  background: var(--color-ink, #1a1a1a);
+  padding: 0.4rem 1.1rem;
+  border-radius: 50px;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease,
+    transform 0.2s ease;
+}
+
+.nav__resume:hover {
+  background: var(--color-accent, #c45d3e);
+  color: white;
+  transform: translateY(-1px);
+}
+
+/* Scrolled state — invert */
+.nav--scrolled .nav__resume {
+  color: var(--color-ink, #1a1a1a);
+  background: white;
+}
+
+.nav--scrolled .nav__resume:hover {
+  background: var(--color-accent, #c45d3e);
+  color: white;
+}
+
+
+/* ============================================================
+   HAMBURGER — dark by default, white when scrolled
+   ============================================================ */
+.nav__toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+  z-index: 5100;
+}
+
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 22px;
+  height: 16px;
+  position: relative;
+}
+
+.hamburger__line {
+  display: block;
+  width: 22px;
+  height: 2px;
+  background: var(--color-ink, #1a1a1a);
+  border-radius: 2px;
+  position: absolute;
+  transition:
+    transform 0.3s cubic-bezier(0.16, 1, 0.3, 1),
+    background 0.3s ease,
+    opacity 0.2s ease;
+}
+
+.nav--scrolled .hamburger__line {
+  background: white;
+}
+
+/* When menu is open, always white (over dark overlay) */
+.hamburger.is-open .hamburger__line {
+  background: white;
+}
+
+.hamburger__line:nth-child(1) {
+  top: 3px;
+}
+
+.hamburger__line:nth-child(2) {
+  bottom: 3px;
+}
+
+/* Open state → X */
+.hamburger.is-open .hamburger__line:nth-child(1) {
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+.hamburger.is-open .hamburger__line:nth-child(2) {
+  bottom: auto;
+  top: 50%;
+  transform: translateY(-50%) rotate(-45deg);
+}
+
+
+/* ============================================================
+   FULLSCREEN MOBILE OVERLAY
+   ============================================================ */
+.mobile-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 4999;
+  background: rgba(26, 26, 26, 0.97);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    visibility 0.35s ease;
+}
+
+.mobile-overlay.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-overlay__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.4rem;
+  padding: 0 2rem;
+  width: 100%;
+  max-width: 400px;
+}
+
+/* Individual link */
+.mobile-overlay__link {
+  font-family: var(--font-display, 'DM Serif Display', Georgia, serif);
+  font-size: 2.2rem;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.85);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.6rem 0;
+  text-align: left;
+  width: 100%;
+  display: flex;
+  align-items: baseline;
+  gap: 0.8rem;
+  position: relative;
+  opacity: 0;
+  transform: translateY(12px);
+}
+
+.mobile-overlay.is-open .mobile-overlay__link {
+  animation: revealLink 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+}
+
+@keyframes revealLink {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.mobile-overlay__link-number {
+  font-family: var(--font-body, 'Outfit', system-ui, sans-serif);
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  color: var(--color-accent, #c45d3e);
+  min-width: 1.4rem;
+}
+
+.mobile-overlay__link::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.mobile-overlay__link:hover {
+  color: white;
+}
+
+/* Mobile resume button */
+.mobile-overlay__resume {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-family: var(--font-body, 'Outfit', system-ui, sans-serif);
+  font-size: 0.88rem;
+  font-weight: 600;
+  text-decoration: none;
+  color: var(--color-ink, #1a1a1a);
+  background: white;
+  padding: 0.7rem 1.6rem;
+  border-radius: 50px;
+  margin-top: 2rem;
+  opacity: 0;
+  transform: translateY(8px);
+}
+
+.mobile-overlay.is-open .mobile-overlay__resume {
+  animation: revealLink 0.5s cubic-bezier(0.16, 1, 0.3, 1) 0.4s forwards;
+}
+
+.mobile-overlay__resume:hover {
+  background: var(--color-accent, #c45d3e);
+  color: white;
+}
+
+
+/* ============================================================
+   RESPONSIVE
+   ============================================================ */
+@media screen and (max-width: 768px) {
+  .nav__inner {
+    padding: 0 1.25rem;
+  }
+
+  .nav__links,
+  .nav__resume {
+    display: none;
+  }
+
+  .nav__toggle {
+    display: flex;
+  }
 }

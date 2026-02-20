@@ -1,39 +1,58 @@
+/* ============================================================
+   FOOTER — Editorial Architect Design System
+   ============================================================ */
+
 .footer-container {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  padding: 3rem 2rem;
+  background: var(--color-ink, #1a1a1a);
+  color: rgba(255, 255, 255, 0.5);
+  font-family: var(--font-body, 'Outfit', system-ui, sans-serif);
 }
 
+/* ── Social links row ── */
 .container-links {
   display: flex;
-  justify-content: center;
   align-items: center;
-  gap: 10%;
-  color: white;
+  gap: 1rem;
 }
 
-.linkedin-logo,
-.github-logo {
-  font-size: 24px;
-  width: 50px;
-  height: 50px;
-  border: 1px solid white;
-  border-radius: 50%;
-  background-color: transparent;
-  color: white;
+.social-link {
   display: flex;
-  justify-content: center;
   align-items: center;
-  transition: border 0.2s ease, color 0.2s ease, transform 0.2s ease;
-  box-sizing: border-box;
-  cursor: pointer;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  border: 1.5px solid rgba(255, 255, 255, 0.15);
+  background: transparent;
+  color: rgba(255, 255, 255, 0.55);
+  text-decoration: none;
+  transition:
+    color 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+    border-color 0.2s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.2s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
-.linkedin-logo:hover,
-.github-logo:hover {
-  color: #0077b5;
-  /* LinkedIn blue */
-  border: 1px solid #0077b5;
-  transform: scale(1.05);
-  /* subtle crisp pop */
+.social-link:hover {
+  color: var(--color-accent, #c45d3e);
+  border-color: var(--color-accent, #c45d3e);
+  transform: translateY(-2px);
+}
+
+.social-link svg {
+  width: 18px;
+  height: 18px;
+}
+
+/* ── Copyright line ── */
+.footer-copy {
+  font-size: 0.78rem;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+  color: rgba(255, 255, 255, 0.3);
 }
