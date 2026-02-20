@@ -1,11 +1,14 @@
+/* Root page container */
 .page {
   display: flex;
-  width: 100%;
   flex-direction: column;
-  min-height: 150vh;
+  width: 100%;
+  min-height: 100vh;
+  /* safer than 150vh for production */
+  box-sizing: border-box;
 }
 
-/* Centers the whole education section */
+/* Education section wrapper */
 .education-container-education {
   margin-top: 200px;
   flex: 1;
@@ -17,31 +20,28 @@
   box-sizing: border-box;
   margin-bottom: 50px;
   padding: 0 20px;
-  /* adds some side padding */
 }
 
-/* Keeps accordion content stacked and centered */
+/* Stack and center accordion content */
 .education-section-container-education {
   display: flex;
   flex-direction: column;
   align-items: center;
   width: 100%;
+  box-sizing: border-box;
 }
 
-/* Centers the header */
+/* Header styling */
 .header-education {
   text-align: center;
   margin-bottom: 20px;
   font-size: 2rem;
-  /* default desktop size */
 }
 
-/* Accordion styling */
-.accordion-container-education .MuiAccordion-root {
+/* Accordion styling with stronger specificity to override MUI */
+.education-container-education .accordion-container-education .MuiAccordion-root {
   width: 90%;
-  /* desktop default */
   margin: 0 auto 20px;
-  /* center + spacing */
   border-radius: 8px;
 }
 
@@ -53,7 +53,7 @@
     font-size: 1.8rem;
   }
 
-  .accordion-container-education .MuiAccordion-root {
+  .education-container-education .accordion-container-education .MuiAccordion-root {
     width: 95%;
   }
 }
@@ -70,9 +70,8 @@
     margin-bottom: 15px;
   }
 
-  .accordion-container-education .MuiAccordion-root {
+  .education-container-education .accordion-container-education .MuiAccordion-root {
     width: 100%;
-    /* full width minus container padding */
     margin-bottom: 15px;
   }
 }

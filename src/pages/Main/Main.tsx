@@ -108,8 +108,8 @@ export function Main() {
             <img id='about-me' className='image-header' src="./IMG_2830.JPG" />
           </div>
           <div className='about-me-text-section-1-container'>
-            <div className='goals-container'>
-              <h1 className='header-about-me-text-container'>2025 Goals:</h1>
+            {/* <div className='goals-container'>
+              <h1 className='header-about-me-text-container'>2026 Goals:</h1>
               <div className='bullet-container'>
                 <ul className='bullets-about-me-goals'>
                   <li>✅ Enroll in a Post-Baccalaureate Program in CS as the first step toward a Master’s in Computer Science</li>
@@ -117,13 +117,13 @@ export function Main() {
                   <li>Apply for internships or relevant experience in tech</li>
                   <li>Expand knowledge in algorithms and data structures</li>
                 </ul>
-              </div>
-            </div>
+              </div> */}
+            {/* </div> */}
 
             <div className='header-about-me-text-container'><h1>About Me:</h1></div>
             <div className='paragraph-about-me-text-container'>
               <p>
-                Hello! My name is Zack Valavanis, and I’m passionate about continuing my journey into computer science and software engineering. I’m originally from the northside suburbs of Chicago, and in my free time, I enjoy playing guitar, going to concerts, traveling, and building side projects that challenge and inspire me.
+                I'm Zack Valavanis, a software engineer based in Chicago with a passion for full-stack development and computer science fundamentals. I bring a unique perspective shaped by years of professional experience in finance — an analytical foundation I now channel into building clean, data-driven applications. I'm currently completing a post-baccalaureate CS degree at the University of Colorado Boulder, with plans to pursue a master's in AI/ML. When I'm not coding, you'll find me playing guitar or planning the next trip.
               </p>
             </div>
 
@@ -132,10 +132,10 @@ export function Main() {
             </div>
           </div>
         </section>
-      </div>
+      </div >
 
       {/* Skills Section (UNCHANGED) */}
-      <div id='skills' className='section-3-container'>
+      < div id='skills' className='section-3-container' >
         <div className='header-container-3'><h1 className='header-section-3'>Technologies I Work With</h1></div>
         <section className='skills-container'>
           {[
@@ -188,10 +188,10 @@ export function Main() {
             </div>
           ))}
         </section>
-      </div>
+      </div >
 
       {/* Work Experience Section */}
-      <div className='section-2-container'>
+      < div className='section-2-container' >
         <section className='section-2'>
           <div className='left-side-section-2-container'>
             <div id='experience' className='header-section-2'><h1>Professional Experience</h1></div>
@@ -224,10 +224,10 @@ export function Main() {
             </div>
           ) : null}
         </section>
-      </div>
+      </div >
 
       {/* Education Section */}
-      <div className='education-container'>
+      < div className='education-container' >
         <section id='education' className='education-section-container'>
           <div className='leftSide-contianer'>
             {!isMobile ? <div className='left-side-education-container'><img src='/Colorado.avif' /></div> : null}
@@ -259,12 +259,12 @@ export function Main() {
             </div>
           </div>
         </section>
-      </div>
+      </div >
 
       {/* Contact Section */}
-      <div className='section-4-container'>
+      < div className='section-4-container' >
         <section id='contact-me' className='section-4'><ContactMe /></section>
-      </div>
-    </div>
+      </div >
+    </div >
   );
 }

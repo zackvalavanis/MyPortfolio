@@ -26,22 +26,22 @@ export function AboutMe() {
         </div>
         <div className='about-me-paragraphs'>
           <p>
-            Hi, my name is Zack Valavanis, and I’m an aspiring software engineer passionate about building thoughtful, user-centered digital experiences. I’m currently strengthening my computer science fundamentals while applying them through personal projects, from web apps to optimization challenges, where I love diving into problems and finding elegant solutions.
+            My name is Zack Valavanis, and I'm a software engineer with a background in finance and a deep commitment to building well-crafted, data-driven applications. I'm currently sharpening my computer science foundations through formal coursework and hands-on projects — approaching every problem with the same analytical rigor I developed working in institutional investment management.
           </p>
           <p>
-            I grew up in the northern suburbs of Chicago, where a love of problem-solving and creative exploration naturally evolved into a fascination with technology and its impact on how we live, learn, and connect. That curiosity continues to drive me as I pursue both formal education and hands-on software development experience. I look forward to starting my path to a masters degree in computer science in the spring of 2026.
-          </p>
-
-          <p>
-            Outside of tech, I’m an avid guitarist and music enthusiast who enjoys concerts, writing songs, and exploring new genres. Traveling is also a big part of my life, giving me fresh perspectives that influence both my creativity and my approach to teamwork.
+            I grew up in the northern suburbs of Chicago, where an early love of problem-solving eventually led me to a career in finance — and later, to a deliberate pivot into software engineering. After years of working with complex data and high-stakes systems at a professional level, I recognized that the tools being built to analyze and communicate that data were where I wanted to be. I'm currently completing a post-baccalaureate CS degree at the University of Colorado Boulder, with plans to begin a Master's in Computer Science thereafter.
           </p>
 
           <p>
-            Technically, I’m especially interested in full-stack web development, software architecture, and the intersection of design and functionality. Recently, I’ve been working with React, Node.js, and Tailwind CSS to build responsive, dynamic applications, while continually exploring new frameworks and best practices to sharpen my skills.
+            Outside of tech, I'm a guitarist and lifelong music enthusiast — I play regularly, write songs, and rarely miss a good concert. Traveling is equally important to me; exploring new places has a way of reshaping how I think about design, people, and collaboration in ways that quietly influence my work.
           </p>
 
           <p>
-            Looking ahead, I’m excited about opportunities that allow me to collaborate with talented teams, contribute to meaningful projects, and keep growing as a developer. My goal is to build a career rooted in learning, creativity, and creating technology that makes a real impact.
+            My technical focus is full-stack web development, with particular interest in software architecture and building systems that are both performant and maintainable. I've been building with React, TypeScript, FastAPI, Python, Javascript, Ruby and PostgreSQL — most recently developing an MLB statistics dashboard featuring custom authentication and real-time data visualization. I'm also currently studying C++ and algorithms as part of my formal CS curriculum, reinforcing the fundamentals that make better engineers.
+          </p>
+
+          <p>
+            I'm looking for opportunities to contribute to meaningful projects alongside talented teams — ideally at the intersection of software and data, where my finance background adds a dimension most engineers don't bring. My goal is to build a career defined by continuous learning, technical depth, and work that has real-world consequence.
           </p>
 
         </div>
