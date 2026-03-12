@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
-import "./Navbar.css";
+import './NavBar.css'
 
 const NAV_ITEMS = [
   { label: "About", id: "about-me" },
