@@ -51,7 +51,7 @@ export function Header() {
             </p>
 
             <div className="hero__actions anim-item anim-delay-4">
-              <a href="#about-me" className="hero__btn hero__btn--primary">
+              <a href="#projects" className="hero__btn hero__btn--primary">
                 Explore My Work
               </a>
               <a href="./ZackValavanisResume.pdf" className="hero__btn hero__btn--ghost">

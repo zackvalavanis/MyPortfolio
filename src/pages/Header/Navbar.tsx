@@ -4,6 +4,7 @@ import './NavBar.css'
 
 const NAV_ITEMS = [
   { label: "About", id: "about-me" },
+  { label: "Projects", id: "projects" },
   { label: "Skills", id: "skills" },
   { label: "Experience", id: "experience" },
   { label: "Education", id: "education" },

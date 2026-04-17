@@ -1,0 +1,152 @@
+/* ============================================================
+   CONTACT ME — Editorial Architect Design System
+   ============================================================ */
+
+/* ── Container ── */
+.contact-me-container {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  /* 🔥 ensures equal height cards */
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  padding: 3rem 2rem;
+  background-color: var(--color-warm-white, #faf8f5);
+  color: var(--color-ink, #1a1a1a);
+  font-family: var(--font-body, 'Outfit', system-ui, sans-serif);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Cards ── */
+.left-side-contact-container,
+.right-side-contact-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  /* 🔥 balances content */
+  flex: 1 1 420px;
+  max-width: 500px;
+  min-width: 350px;
+  height: 100%;
+  /* 🔥 stretch to equal height */
+  padding: 2.5rem 2rem;
+  background: white;
+  border: 1px solid rgba(26, 26, 26, 0.07);
+  border-radius: 16px;
+  transition:
+    box-shadow 0.35s cubic-bezier(0.16, 1, 0.3, 1),
+    transform 0.35s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.left-side-contact-container:hover,
+.right-side-contact-container:hover {
+  box-shadow: 0 16px 40px rgba(26, 26, 26, 0.08);
+  transform: translateY(-3px);
+}
+
+/* ── Image ── */
+.project-image {
+  width: 100%;
+  height: 350px;
+  /* 🔥 fixed height */
+  object-fit: cover;
+  /* 🔥 prevents stretching */
+  border-radius: 20px;
+  transition: transform 0.2s ease;
+}
+
+.project-image:hover {
+  transform: scale(1.02);
+}
+
+/* ── Section headers ── */
+.header-in-container-project {
+  text-align: center;
+  font-family: var(--font-display, 'DM Serif Display', Georgia, serif);
+  font-size: 1.8rem;
+  font-weight: 400;
+  letter-spacing: -0.01em;
+  color: var(--color-ink, #1a1a1a);
+  margin: 0 0 1.8rem 0;
+}
+
+/* ── Left side — Info ── */
+.infomation-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.pro-summary-container {
+  flex-grow: 1;
+  /* 🔥 fills space evenly */
+  margin-bottom: 2rem;
+  padding-bottom: 2rem;
+  border-bottom: 1px solid rgba(26, 26, 26, 0.08);
+}
+
+.pro-summary-container h1 {
+  font-family: var(--font-body, 'Outfit', system-ui, sans-serif);
+  font-size: 0.98rem;
+  font-weight: 400;
+  line-height: 1.75;
+  color: var(--color-graphite, #3d3d3d);
+  margin: 0;
+}
+
+/* ── Tech tags ── */
+.tech-tags-projects {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(26, 26, 26, 0.06);
+}
+
+.tech-tag-projects {
+  font-family: var(--font-body);
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.03em;
+  padding: 4px 12px;
+  border-radius: var(--radius-pill);
+  background: var(--color-cream);
+  color: var(--color-graphite);
+  border: 1px solid rgba(26, 26, 26, 0.06);
+}
+
+/* ============================================================
+   RESPONSIVE — TABLET (≤ 900px)
+   ============================================================ */
+@media screen and (max-width: 900px) {
+  .contact-me-container {
+    flex-direction: column;
+    align-items: center;
+    padding: 2.5rem 1.25rem;
+  }
+
+  .left-side-contact-container,
+  .right-side-contact-container {
+    max-width: 100%;
+    min-width: unset;
+    width: 100%;
+  }
+}
+
+/* ============================================================
+   RESPONSIVE — MOBILE (≤ 480px)
+   ============================================================ */
+@media screen and (max-width: 480px) {
+
+  .left-side-contact-container,
+  .right-side-contact-container {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .header-in-container-project {
+    font-size: 1.5rem;
+  }
+}
