@@ -39,7 +39,7 @@ export function AboutMe() {
             complex data and high-stakes systems at a professional level, I recognized
             that the tools being built to analyze and communicate that data were where I
             wanted to be. I'm currently completing a post-baccalaureate CS degree at
-            the University of Colorado Boulder, with plans to begin a Master's in
+            the University of Colorado-Boulder, with plans to begin a Master's in
             Computer Science thereafter.
           </p>
 

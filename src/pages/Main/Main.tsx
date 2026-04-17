@@ -178,8 +178,7 @@ export function Main() {
                 full-stack development and computer science fundamentals. I bring a unique
                 perspective shaped by years of professional experience in finance — an analytical
                 foundation I now channel into building clean, data-driven applications. I'm
-                currently completing a post-baccalaureate CS degree at the University of Colorado
-                Boulder, with plans to pursue a master's in AI/ML. When I'm not coding, you'll
+                currently completing a post-baccalaureate CS degree at the University of Colorado-Boulder, with plans to pursue a Master's in AI/ML. When I'm not coding, you'll
                 find me playing guitar or planning the next trip.
               </p>
             </div>
@@ -317,7 +316,7 @@ export function Main() {
               items={[
                 "Completing core computer science coursework including data structures, algorithms, and software development",
                 "Building a foundation for advanced study in computer science and transition from a finance background",
-                "Preparing for a master's degree in computer science and a career in software engineering",
+                "Preparing for a Master's degree in computer science and a career in software engineering",
               ]}
             />
 

@@ -6,7 +6,6 @@ import statDiamondImg from "../../assets/StatDiamondLogo.png"
 type Project = {
   title: string;
   description: string;
-  features: string[];
   stack: string[];
   demo?: string;
   github?: string;
@@ -17,15 +16,7 @@ const projects: Project[] = [
   {
     title: "Algo Ledger",
     description:
-      "Freemium Algorand portfolio analytics dashboard with historical performance tracking, on-chain Pro upgrades, and multi-wallet support.",
-    features: [
-      "Wallet-based auth via Algorand signature verification",
-      "Historical USD portfolio value using daily ALGO price feeds",
-      "Deposit/withdrawal flow detection with adjusted chart view",
-      "ASA (token) holdings tracked alongside ALGO balance",
-      "On-chain Pro subscription payments via Algorand",
-      "Time-range presets (1D, 1W, MTD, 3M, 6M, YTD, 1Y, All)",
-    ],
+      "Freemium Algorand portfolio analytics dashboard featuring wallet-based auth via signature verification, historical USD portfolio tracking with daily ALGO price feeds, deposit/withdrawal flow detection, ASA token holdings alongside ALGO balance, on-chain Pro subscription payments, and configurable time-range presets.",
     stack: ["Python", "FastAPI", "Algorand SDK", "Supabase", "React", "TypeScript", "Recharts", "Tailwind CSS"],
     demo: "https://algo-ledger.vercel.app/",
     github: "https://github.com/yourusername/stat-diamond",
@@ -34,15 +25,7 @@ const projects: Project[] = [
   {
     title: "Stat Diamond",
     description:
-      "Full-stack MLB analytics platform with real-time game tracking, live statistics, player profiles, and team rosters.",
-    features: [
-      "Live game scores with play-by-play updates and lineup tracking",
-      "Real-time league leaders using MLB Stats API",
-      "Dynamic player pages with career stats for both hitters and pitchers",
-      "Team rosters with batting and pitching statistics",
-      "Smart caching system with adaptive expiration (15 min live, 30 days historical)",
-      "MLB news feed integration via ESPN API",
-    ],
+      "Full-stack MLB analytics platform with live game scores and play-by-play updates, real-time league leaders via the MLB Stats API, dynamic player pages with career stats for hitters and pitchers, team rosters with batting and pitching statistics, smart caching with adaptive expiration, and an MLB news feed via ESPN API.",
     stack: ["Python", "FastAPI", "Supabase", "PostgreSQL", "React", "TypeScript", "MLB Stats API"],
     demo: "https://stat-diamond.vercel.app/", // Update with your actual URL
     github: "https://github.com/yourusername/stat-diamond", // Add if you want
@@ -67,12 +50,6 @@ export function Projects() {
             <div className="pro-summary-container">
 
               <p>{project.description}</p>
-
-              <ul>
-                {project.features.map((feature, i) => (
-                  <li key={i}>{feature}</li>
-                ))}
-              </ul>
 
             </div>
           </div>
