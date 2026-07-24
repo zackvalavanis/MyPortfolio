@@ -2,7 +2,7 @@ import React, { useRef } from "react";
 import './Projects.css'
 import algoLedgerImg from "../../assets/Algo_ledger.png";
 import statDiamondImg from "../../assets/StatDiamondLogo.png"
-import cuefinderImg from "../../assets/cuefinder.png"
+import cuefinderImg from "../../assets/cuefinder2.png"
 
 type Project = {
   title: string;
