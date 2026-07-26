@@ -3,6 +3,7 @@ import './Projects.css'
 import algoLedgerImg from "../../assets/Algo_ledger.png";
 import statDiamondImg from "../../assets/StatDiamondLogo.png"
 import cuefinderImg from "../../assets/cuefinder2.png"
+import streakcatImg from "../../assets/streakcat.png"
 
 type Project = {
   title: string;
@@ -40,6 +41,15 @@ const projects: Project[] = [
     demo: "https://stat-diamond.vercel.app/", // Update with your actual URL
     github: "https://github.com/yourusername/stat-diamond", // Add if you want
     image: statDiamondImg,
+  },
+  {
+    title: "Streak Cat",
+    description:
+      "Full-stack habit tracking app with streak-based progress tracking, an AI assistant powered by OpenAI function calling that creates, updates, and queries habits from natural language, daily check-ins with streak counters and completion history, per-habit stats and visualizations, and a React/TypeScript frontend backed by FastAPI.",
+    stack: ["Python", "FastAPI", "Neon", "PostgreSQL", "React", "TypeScript", "OpenAi API"],
+    demo: "https://streak-cat-azure.vercel.app/", // Update with your actual URL
+    github: "https://github.com/zackvalavanis/StreakCat", // Add if you want
+    image: streakcatImg,
   }
 ];
 
