@@ -20,7 +20,7 @@ const projects: Project[] = [
     description:
       "Freemium Algorand portfolio analytics dashboard featuring wallet-based auth via signature verification, historical USD portfolio tracking with daily ALGO price feeds, deposit/withdrawal flow detection, ASA token holdings alongside ALGO balance, on-chain Pro subscription payments, and configurable time-range presets.",
     stack: ["Python", "FastAPI", "Algorand SDK", "Supabase", "React", "TypeScript", "Recharts", "Tailwind CSS", "Vercel"],
-    demo: "https://algo-ledger.vercel.app/",
+    demo: "https://algo-ledger.com",
     github: "https://github.com/yourusername/stat-diamond",
     image: algoLedgerImg,
   },
